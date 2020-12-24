@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>토스페이먼츠 전자결제 샘플 페이지 (XPay)</title>
+<script type="text/javascript">
+function LPad(digit, size, attatch) {
+    var add = "";
+    digit = digit.toString();
+
+    if (digit.length < size) {
+        var len = size - digit.length;
+        for (i = 0; i < len; i++) {
+            add += attatch;
+        }
+    }
+    return add + digit;
+}
+
+function makeoid() {
+	var now = new Date();
+	var years = now.getFullYear();
+	var months = LPad(now.getMonth() + 1, 2, "0");
+	var dates = LPad(now.getDate(), 2, "0");
+	var hours = LPad(now.getHours(), 2, "0");
+	var minutes = LPad(now.getMinutes(), 2, "0");
+	var seconds = LPad(now.getSeconds(), 2, "0");
+	var timeValue = years + months + dates + hours + minutes + seconds; 
+	document.getElementById("LGD_OID").value = "test_" + timeValue;
+	document.getElementById("LGD_TIMESTAMP").value = timeValue;
+}
+
+/*
+* 인증요청 처리 
+*/
+function doPay() {
+	// OID, TIMESTAMP 생성
+	makeoid();
+	// 결제창 호출
+	document.getElementById("LGD_PAYINFO").submit();
+}
+</script>
+</head>
+<body>
+<form method="post" id="LGD_PAYINFO" action="payreq_crossplatform.php">
+    <div>
+        <table>
+            <tr>
+                <td>상점아이디(t를 제외한 아이디) </td>
+                <td><input type="text" name="CST_MID" id="CST_MID" value="lgdacomxpay"/></td>
+            </tr>
+            <tr>
+                <td>서비스,테스트 </td>
+                <td><input type="text" name="CST_PLATFORM" id="CST_PLATFORM" value="test"/></td>
+            </tr>
+            <tr>
+                <td>구매자 이름 </td>
+                <td><input type="text" name="LGD_BUYER" id="LGD_BUYER" value="홍길동"/></td>
+            </tr>
+            <tr>
+                <td>상품정보 </td>
+                <td><input type="text" name="LGD_PRODUCTINFO" id="LGD_PRODUCTINFO" value="myLG070-인터넷전화기"/></td>
+            </tr>
+            <tr>
+                <td>결제금액 </td>
+                <td><input type="text" name="LGD_AMOUNT" id="LGD_AMOUNT" value="50000"/></td>
+            </tr>
+            <tr>
+                <td>구매자 이메일 </td>
+                <td><input type="text" name="LGD_BUYEREMAIL" id="LGD_BUYEREMAIL" value=""/></td>
+            </tr>
+            <tr>
+                <td>주문번호 </td>
+                <td><input type="text" name="LGD_OID" id="LGD_OID" value="test_1234567890020"/></td>
+            </tr>
+            <tr>
+                <td>타임스탬프 </td>
+                <td><input type="text" name="LGD_TIMESTAMP" id="LGD_TIMESTAMP" value="1234567890"/></td>
+            </tr>
+            <tr>
+                <td>결제수단 </td>
+                <td>
+                	<select name="LGD_CUSTOM_USABLEPAY" id="LGD_CUSTOM_USABLEPAY">
+							<option value="SC0010">신용카드</option>				
+					</select>
+				</td>
+            </tr>
+            <tr>
+                <td>결제 프로세스유형 (수정불가)</td>
+                <td>
+                	<select name="LGD_CUSTOM_PROCESSTYPE" id="LGD_CUSTOM_PROCESSTYPE">
+						<option value="AUTHTR">AUTHTR</option>
+					</select>
+				</td>
+            </tr>
+            <tr>
+                <td>결제창 호출 방식(수정불가) </td>
+                <td>
+                	<select name="LGD_WINDOW_TYPE" id="LGD_WINDOW_TYPE">
+						<option value="iframe">iframe</option>
+					</select>
+				</td>
+            </tr>
+            <tr>
+                <td>신용카드 카드사 인증 페이지 연동 방식(수정불가) </td>
+                <td>
+                	<select name="LGD_CUSTOM_SWITCHINGTYPE" id="LGD_CUSTOM_SWITCHINGTYPE">
+						<option value="IFRAME">IFRAME</option>
+					</select>
+				</td>
+            </tr>
+            <tr>
+                <td colspan="2">자체창 파라미터 </td>
+            </tr>
+            <tr>
+                <td>자체창 사용여부(자체창 사용시 반드시 "Y" 로 설정해 주셔야 합니다) </td>
+                <td>
+                	<select name="LGD_SELF_CUSTOM" id="LGD_SELF_CUSTOM">
+						<option value="Y">사용함(Y)</option>
+					</select>
+				</td>
+            </tr>
+ 			<tr>
+                <td>카드선택</td>
+                <td>
+                	<select name="LGD_CARDTYPE" id="LGD_CARDTYPE">
+						<option value="XX">선택</option>  
+                		<option value="11">국민</option>
+						<option value="15">카카오뱅크</option>
+						<option value="21">외환</option>
+						<option value="31" selected="selected">비씨</option>
+						<option value="41">신한</option>
+						<option value="51">삼성</option>
+						<option value="61">현대</option>
+						<option value="71">롯데</option>
+						<option value="91">NH</option>
+						<option value="36">씨티</option>
+						<option value="32">하나</option>
+						<option value="33">우리</option>
+						<option value="42">제주</option>
+						<option value="34">수협</option>
+						<option value="35">전북</option>
+						<option value="46">광주</option>
+						<option value="37">우체국체크</option>
+						<option value="38">MG새마을체크</option>
+						<option value="39">저축은행체크</option>
+						<option value="62">신협체크</option>
+						<option value="37">우체국체크</option>
+						<option value="38">새마을금고체크</option>
+						<option value="62">신협체크</option>
+						<option value="4V">해외VISA</option>
+						<option value="4M">해외MASTER</option>
+						<option value="4J">해외JCB</option>
+						<option value="6D">해외DINERS CLUB</option>
+                	</select>
+                </td>
+            </tr>
+			
+			<tr>
+                <td>안심클릭 할부개월(LGD_INSTALL)</td>
+                <td><input type="text" name="LGD_INSTALL" id="LGD_INSTALL" value="0"/></td>
+            </tr>
+            <tr>
+                <td>무이자여부</td>
+                <td><input type="text" name="LGD_NOINT" id="LGD_NOINT" value="0" /></td>
+            </tr>
+			<tr>
+                <td>간편결제사용여부(LGD_SP_CHAIN_CODE)</td>
+                <td>
+                	<select name="LGD_SP_CHAIN_CODE" id="LGD_SP_CHAIN_CODE">
+                		<option value="0">사용안함</option>
+						<option value="1">사용함</option>
+						<option value="3">국민카드 앱카드바로사용</option>
+						<option value="4">국민카드 앱카드선택사용</option>
+                	</select>
+				</td>
+            </tr>
+			<tr>
+                <td>삼성카드 간편결제 쇼핑몰 KEY_ID (LGD_SP_ORDER_USER_ID)</td>
+				<td><input type="text" name="LGD_SP_ORDER_USER_ID" id="LGD_SP_ORDER_USER_ID" value=""/>삼성카드 간편결제는 일부 허용한 가맹점만 가능하고, KEY_ID 를 생성해서 보내야함 </td>
+            </tr>
+			<tr>
+                <td>포인트 사용여부(LGD_POINTUSE)</td>
+                <td>
+					<select name="LGD_POINTUSE" id="LGD_POINTUSE">
+                		<option value="Y">사용함</option>
+						<option value="N" selected="selected">사용안함</option>
+                	</select>
+				</td>
+            </tr>
+			<tr>
+                <td>상점결과값 리턴URL</td>
+                <td><input type="text" name="LGD_RETURNURL" id="LGD_RETURNURL" value="https://localhost:9443/CardApp/returnurl.php"/></td>
+			</tr>
+<!-- 수정 불가  시작-->
+            <tr>
+                <td>인증유형 </td>
+                <td><input type="text" name="LGD_AUTHTYPE" id="LGD_AUTHTYPE"/></td>
+            </tr>
+			<tr>
+                <td>통화코드 (won)</td>
+                <td><input type="text" name="LGD_CURRENCY" id="LGD_CURRENCY" value="410"/></td>
+            </tr>			
+			<tr>
+                <td>ISP 통화코드 (won) </td>
+                <td><input type="text" name="KVP_CURRENCY" id="KVP_CURRENCY"/></td>
+            </tr>
+			<tr>
+                <td>KVP_OACERT_INF</td>
+                <td><input type="text" name="KVP_OACERT_INF" id="KVP_OACERT_INF"/></td>
+            </tr>	
+			<tr>
+                <td>KVP_RESERVED1</td>
+                <td><input type="text" name="KVP_RESERVED1" id="KVP_RESERVED1"/></td>
+            </tr>						
+			<tr>
+                <td>KVP_RESERVED2</td>
+                <td><input type="text" name="KVP_RESERVED2" id="KVP_RESERVED2"/></td>
+            </tr>						
+			<tr>
+                <td>KVP_RESERVED3</td>
+                <td><input type="text" name="KVP_RESERVED3" id="KVP_RESERVED3"/></td>
+            </tr>	
+			<tr>
+                <td>KVP_GOODNAME</td>
+                <td><input type="text" name="KVP_GOODNAME" id="KVP_GOODNAME"/></td>
+            </tr>				
+			<tr>
+                <td>KVP_CARDCOMPANY</td>
+                <td><input type="text" name="KVP_CARDCOMPANY" id="KVP_CARDCOMPANY"/></td>
+            </tr>			
+			<tr>
+                <td>KVP_PRICE</td>
+                <td><input type="text" name="KVP_PRICE" id="KVP_PRICE"/></td>
+            </tr>			
+			<tr>
+                <td>KVP_PGID</td>
+                <td><input type="text" name="KVP_PGID" id="KVP_PGID"/></td>
+            </tr>			    
+			<tr>
+                <td>KVP_QUOTA</td>
+                <td><input type="text" name="KVP_QUOTA" id="KVP_QUOTA"/></td>
+            </tr>
+            <tr>
+                <td>KVP_NOINT </td>
+                <td><input type="text" name="KVP_NOINT" id="KVP_NOINT"/></td> 
+			</tr>
+            <tr>
+                <td>KVP_SESSIONKEY </td>
+                <td><input type="hidden" name="KVP_SESSIONKEY" id="KVP_SESSIONKEY" /></td> 
+			</tr>
+			<tr>
+                <td>KVP_ENCDATA</td>
+                <td><input type="hidden" name="KVP_ENCDATA" id="KVP_ENCDATA"/></td> 
+			</tr>
+			<tr>
+                <td>KVP_CARDCODE</td>
+                <td><input type="text" name="KVP_CARDCODE" id="KVP_CARDCODE"/></td> 
+			</tr>
+			<tr>
+                <td>KVP_CONAME</td>
+                <td><input type="text" name="KVP_CONAME" id="KVP_CONAME"/></td> 
+			</tr>
+			<tr>
+                <td>LGD_KVPISP_USER</td>
+                <td><input type="text" name="LGD_KVPISP_USER" id="LGD_KVPISP_USER"/></td> 
+			</tr>
+            <tr>
+                <td>LGD_PAN </td>
+                <td><input type="text" name="LGD_PAN" id="LGD_PAN" /></td>
+            </tr>
+            <tr>
+                <td>VBV_ECI</td>
+                <td><input type="text" name="VBV_ECI" id="VBV_ECI"/></td>
+            </tr>
+            <tr>
+                <td>VBV_CAVV</td>
+                <td><input type="text" name="VBV_CAVV" id="VBV_CAVV" /></td>
+            </tr>
+            <tr>
+                <td>VBV_XID</td>
+                <td><input type="text" name="VBV_XID" id="VBV_XID" /></td>
+            </tr>
+            <tr>
+                <td>VBV_JOINCODE</td>
+                <td><input type="text" name="VBV_JOINCODE" id="VBV_JOINCODE" /></td>
+            </tr>			
+            <tr>
+                <td>LGD_EXPYEAR</td>
+                <td><input type="text" name="LGD_EXPYEAR" id="LGD_EXPYEAR" /></td>
+            </tr>
+            <tr>
+                <td>LGD_EXPMON</td>
+                <td><input type="text" name="LGD_EXPMON" id="LGD_EXPMON" /></td>
+            </tr>
+			<tr>
+                <td>LGD_LANGUAGE</td>
+                <td><input type="text" name="LGD_LANGUAGE" id="LGD_LANGUAGE" /></td>
+            </tr>
+<!-- //수정 불가  끝 -->
+            <tr>
+                <td colspan="2">
+                <input type="button" value="결제하기" onclick="doPay();" /><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
