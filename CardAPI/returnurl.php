@@ -38,7 +38,7 @@
 	  $payReqMap['LGD_PAYKEY'] = $LGD_PAYKEY;
   }
   else{
-	  echo "LGD_RESPCODE:" . $LGD_RESPCODE . "<br/>LGD_RESPMSG:" . $LGD_RESPMSG; //인증 실패에 대한 처리 로직 추가
+	  echo "LGD_RESPCODE:" . $LGD_RESPCODE . "<br/>LGD_RESPMSG:" . $LGD_RESPMSG; 
   }
 ?>
 <form method="post" name="LGD_RETURNINFO" id="LGD_RETURNINFO">
