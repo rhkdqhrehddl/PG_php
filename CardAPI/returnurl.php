@@ -8,7 +8,7 @@
   	echo "세션이 만료 되었거나 유효하지 않은 요청 입니다.";
   	return;
   }
-  $payReqMap = $_SESSION['PAYREQ_MAP'];
+  $payReqMap = $_SESSION['PAYREQ_MAP'];//결제 요청시, Session에 저장했던 파라미터 MAP
 ?>
 <html>
 <head>
