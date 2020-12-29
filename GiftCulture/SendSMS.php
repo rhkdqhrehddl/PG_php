@@ -12,9 +12,13 @@
 	$LGD_TID					= $_POST["LGD_TID"];							//토스페이먼츠 거래번호
 	$LGD_CULTID             	= $_POST["LGD_CULTID"];							//휴대폰번호
 	
-	$configPath 				= "C:/lgdacom";									//토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf") 위치 지정.   
+	$configPath 				= "C:/lgdacom"; 						 		//토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf") 위치 지정.   
+	
+	if(PHP_OS === "Linux"){
+		$configPath             = "/lgdacom";
+	}
     
-    require_once("C:/lgdacom/XPayClient.php");
+	require_once($configPath . "/XPayClient.php");
     $xpay = new XPayClient($configPath, $CST_PLATFORM);
     if (!$xpay->Init_TX($LGD_MID)) {
     	echo "토스페이먼츠에서 제공한 환경파일이 정상적으로 설치 되었는지 확인하시기 바랍니다.<br/>";

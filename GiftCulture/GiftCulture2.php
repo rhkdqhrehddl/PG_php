@@ -10,9 +10,13 @@
 	$LGD_AMOUNT              	= $_POST["LGD_AMOUNT"];			//결제금액
 	$LGD_AUTHNUMBER            	= $_POST["LGD_CULTPIN"];		//문화상품권번호
 	
-	$configPath 				= "C:/lgdacom";					//토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf") 위치 지정.   
+	$configPath 				= "C:/lgdacom"; 						 		//토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf") 위치 지정.   
+	
+	if(PHP_OS === "Linux"){
+		$configPath             = "/lgdacom";
+	}
     
-    require_once("C:/lgdacom/XPayClient.php");
+	require_once($configPath . "/XPayClient.php");
     $xpay = new XPayClient($configPath, $CST_PLATFORM);
     
     try{
