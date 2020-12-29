@@ -21,8 +21,12 @@
     $LGD_RFPHONE                = $_POST["LGD_RFPHONE"];						//요청자 연락처(가상계좌 환불인경우만 필수)
 
 	$configPath 				= "C:/lgdacom"; 						 		//토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf") 위치 지정.   
-  
-    require_once("C:/lgdacom/XPayClient.php");
+	
+	if(PHP_OS === "Linux"){
+		$configPath             = "/lgdacom";
+	}
+    
+	require_once($configPath . "/XPayClient.php");
 
 	// (1) XpayClient의 사용을 위한 xpay 객체 생성
 	// (2) Init: XPayClient 초기화(환경설정 파일 로드) 
