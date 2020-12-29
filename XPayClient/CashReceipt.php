@@ -41,6 +41,7 @@
     $xpay->Set("LGD_TXNAME", "CashReceipt");
     $xpay->Set("LGD_METHOD", $LGD_METHOD);
     $xpay->Set("LGD_PAYTYPE", $LGD_PAYTYPE);
+    $xpay->Set("LGD_ENCODING", "UTF-8");
 
     if ($LGD_METHOD == "AUTH"){											// 현금영수증 발급 요청
     	$xpay->Set("LGD_OID", $LGD_OID);
