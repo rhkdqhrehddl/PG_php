@@ -43,9 +43,17 @@
     $LGD_RECEIVERPHONE       = $_POST["LGD_RECEIVERPHONE"];			// 수취인 전화번호
     $LGD_DELIVERYINFO        = $_POST["LGD_DELIVERYINFO"];			// 배송지
       
-	$LGD_MERTKEY = "";				//토스페이먼츠에서 발급한 상점키로 변경해 주시기 바랍니다.
+	$configPath                 = "C:/lgdacom";                                  //토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf") 위치 지정.     
 	
-    $LGD_HASHDATA2 = md5($LGD_MID.$LGD_OID.$LGD_AMOUNT.$LGD_RESPCODE.$LGD_TIMESTAMP.$LGD_MERTKEY);
+	if(PHP_OS === "Linux"){
+		$configPath             = "/lgdacom";
+	}
+	
+	require_once($configPath . "/XPayClient.php");
+    $xpay = new XPayClient($configPath, $CST_PLATFORM);
+   	$xpay->Init_TX($LGD_MID);
+	
+    $LGD_HASHDATA2 = $xpay->GetHashDataCas($LGD_MID,$LGD_OID,$LGD_AMOUNT,$LGD_RESPCODE,$LGD_TIMESTAMP);
     
     /*
      * 상점 처리결과 리턴메세지
