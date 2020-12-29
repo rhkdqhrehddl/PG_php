@@ -45,8 +45,12 @@ header('Set-Cookie: PHPSESSID='.session_id().'; SameSite=None; Secure');
 
     $configPath                 = "C:/lgdacom";                                  //토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf") 위치 지정.     
 	
+	if(PHP_OS === "Linux"){
+		$configPath             = "/lgdacom";
+	}
 	
-	
+	echo $_SERVER['HTTP_HOST'];
+	echo $_SERVER['REQUEST_URI'];
     
     /*
      *************************************************
@@ -65,9 +69,7 @@ header('Set-Cookie: PHPSESSID='.session_id().'; SameSite=None; Secure');
      * MD5 해쉬데이터 암호화 검증을 위해
      * 토스페이먼츠에서 발급한 상점키(MertKey)를 환경설정 파일(lgdacom/conf/mall.conf)에 반드시 입력하여 주시기 바랍니다.
      */
-	 
-	echo PHP_OS;
-    require_once("/lgdacom/XPayClient.php");
+    require_once($configPath + "/XPayClient.php");
     $xpay = new XPayClient($configPath, $CST_PLATFORM);
 
    	if (!$xpay->Init_TX($LGD_MID)) {
