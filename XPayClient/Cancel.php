@@ -29,7 +29,6 @@
 
     $xpay->Set("LGD_TXNAME", "Cancel");
     $xpay->Set("LGD_TID", $LGD_TID);
-    $xpay->Set("LGD_ENCODING", "UTF-8");
     
     /*
      * 1. 결제취소 요청 결과처리
