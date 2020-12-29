@@ -44,8 +44,12 @@
     $LGD_DELIVERYINFO        = $_POST["LGD_DELIVERYINFO"];			// 배송지
       
 	$configPath                 = "C:/lgdacom";                                  //토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf") 위치 지정.     
-		
-	require_once("C:/lgdacom/XPayClient.php");
+	
+	if(PHP_OS === "Linux"){
+		$configPath             = "/lgdacom";
+	}
+	
+	require_once($configPath . "/XPayClient.php");
     $xpay = new XPayClient($configPath, $CST_PLATFORM);
    	$xpay->Init_TX($LGD_MID);
 	
