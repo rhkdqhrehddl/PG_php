@@ -31,7 +31,7 @@ header('Set-Cookie: PHPSESSID='.session_id().'; SameSite=None; Secure');
     $LGD_WINDOW_TYPE            = $_POST["LGD_WINDOW_TYPE"];					 //결제창 호출방식 (수정불가)
     $LGD_CUSTOM_SWITCHINGTYPE   = $_POST["LGD_CUSTOM_SWITCHINGTYPE"];            //신용카드 카드사 인증 페이지 연동 방식 (수정불가)  
     $LGD_CUSTOM_PROCESSTYPE     = "TWOTR";                                       //수정불가
-	$server_domain $_SERVER['HTTP_HOST'];
+	$server_domain = $_SERVER['HTTP_HOST'];
 	
     /*
      * 가상계좌(무통장) 결제 연동을 하시는 경우 아래 LGD_CASNOTEURL 을 설정하여 주시기 바랍니다. 
