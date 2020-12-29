@@ -31,16 +31,17 @@ header('Set-Cookie: PHPSESSID='.session_id().'; SameSite=None; Secure');
     $LGD_WINDOW_TYPE            = $_POST["LGD_WINDOW_TYPE"];					 //결제창 호출방식 (수정불가)
     $LGD_CUSTOM_SWITCHINGTYPE   = $_POST["LGD_CUSTOM_SWITCHINGTYPE"];            //신용카드 카드사 인증 페이지 연동 방식 (수정불가)  
     $LGD_CUSTOM_PROCESSTYPE     = "TWOTR";                                       //수정불가
-
+	$server_domain $_SERVER['HTTP_HOST'];
+	
     /*
      * 가상계좌(무통장) 결제 연동을 하시는 경우 아래 LGD_CASNOTEURL 을 설정하여 주시기 바랍니다. 
      */    
-    $LGD_CASNOTEURL				= "https://localhost:9443/XPayClient/cas_noteurl.php";    
+    $LGD_CASNOTEURL				= "https://" . $server_domain . "/XPayClient/cas_noteurl.php";    
 
     /*
      * LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
      */    
-    $LGD_RETURNURL				= "https://localhost:9443/XPayClient/returnurl.php";  
+    $LGD_RETURNURL				= "https://" . $server_domain . "/XPayClient/returnurl.php";  
 
 
     $configPath                 = "C:/lgdacom";                                  //토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf") 위치 지정.     
@@ -49,8 +50,6 @@ header('Set-Cookie: PHPSESSID='.session_id().'; SameSite=None; Secure');
 		$configPath             = "/lgdacom";
 	}
 	
-	echo $_SERVER['HTTP_HOST'];
-	echo $_SERVER['REQUEST_URI'];
     
     /*
      *************************************************
