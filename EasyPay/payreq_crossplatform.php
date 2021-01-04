@@ -36,7 +36,8 @@
 	$LGD_EASYPAY_ONLY			= "PAYNOW";										//페이나우사용여부(값:PAYNOW, 수정불가]
 	$LGD_ONEPAY_VIEW_VERSION    = "02";											//페이나우 창 크기 설정
 	$LGD_USABLECARD				= $_POST["LGD_USABLECARD"];						//사용을 원하는 카드사만 표시
-	$LGD_CASHRECEIPTYN			= $_POST["LGD_CASHRECEIPTYN"];					//현금영수증발급 사용여부
+    $LGD_CASHRECEIPTYN			= $_POST["LGD_CASHRECEIPTYN"];					//현금영수증발급 사용여부
+    $server_domain = $_SERVER['HTTP_HOST'];
 
 	if(PHP_OS === "Linux"){
 		$configPath             = "/lgdacom";
