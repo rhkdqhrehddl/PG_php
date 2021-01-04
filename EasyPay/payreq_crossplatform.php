@@ -38,17 +38,19 @@
 	$LGD_USABLECARD				= $_POST["LGD_USABLECARD"];						//사용을 원하는 카드사만 표시
 	$LGD_CASHRECEIPTYN			= $_POST["LGD_CASHRECEIPTYN"];					//현금영수증발급 사용여부
 
-	
+	if(PHP_OS === "Linux"){
+		$configPath             = "/lgdacom";
+	}
 	
     /*
      * 가상계좌(무통장) 결제 연동을 하시는 경우 아래 LGD_CASNOTEURL 을 설정하여 주시기 바랍니다. 
      */    
-    $LGD_CASNOTEURL				= "https://localhost:9443/XPayClient/cas_noteurl.php";    
+    $LGD_CASNOTEURL				= "https://" . $server_domain . "/XPayClient/cas_noteurl.php";    
 
     /*
      * LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
      */    
-    $LGD_RETURNURL				= "https://localhost:9443/EasyPay/returnurl.php";  
+    $LGD_RETURNURL				= "https://" . $server_domain . "/EasyPay/returnurl.php";  
 	
 	
 	
@@ -70,7 +72,7 @@
      * MD5 해쉬데이터 암호화 검증을 위해
      * 토스페이먼츠에서 발급한 상점키(MertKey)를 환경설정 파일(lgdacom/conf/mall.conf)에 반드시 입력하여 주시기 바랍니다.
      */
-    require_once("C:/lgdacom/XPayClient.php");
+    require_once($configPath . "/XPayClient.php");
     $xpay = new XPayClient($configPath, $CST_PLATFORM);
    	if (!$xpay->Init_TX($LGD_MID)) {
         echo "토스페이먼츠에서 제공한 환경파일이 정상적으로 설치 되었는지 확인하시기 바랍니다.<br/>";
