@@ -25,11 +25,12 @@
     $LGD_AMOUNT                 = $_POST["LGD_AMOUNT"];                          //금액(페이나우 빌링 사용시 페이나우 뷰를 호출하기 위한 필수 파라미터)
     $LGD_EASYPAY_ONLY           = $_POST["LGD_EASYPAY_ONLY"];                    //페이나우 사용 여부(값:PAYNOW, 페이나우 빌링 사용시 페이나우 뷰를 호출하기 위한 필수 파라미터)
     $LGD_WINDOW_TYPE            = "iframe";										 //인증창 호출 방식 (수정불가)  
+    $server_domain 				= $_SERVER['HTTP_HOST'];
 
     /*
      * LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
      */    
-    $LGD_RETURNURL				= "https://localhost:9443/CardBilling/returnurl.php"; 
+    $LGD_RETURNURL				= "https://" . $server_domain . "/CardBilling/returnurl.php"; 
 	
     $payReqMap['CST_PLATFORM']				= $CST_PLATFORM;						// 테스트, 서비스 구분
     $payReqMap['CST_MID']					= $CST_MID;								// 상점아이디
