@@ -42,6 +42,7 @@ header('Set-Cookie: PHPSESSID='.session_id().'; SameSite=None; Secure');
     $LGD_SP_ORDER_USER_ID     = $_POST["LGD_SP_ORDER_USER_ID"];                            //간편결제 쇼핑몰 KEY_ID(계약된 일부 상점만 가능)
     $LGD_POINTUSE                    = $_POST["LGD_POINTUSE"];                            //포인트 사용여부
     $LGD_CURRENCY                   = $_POST["LGD_CURRENCY"];                           //통화코드(410: 원화)
+    $server_domain = $_SERVER['HTTP_HOST'];
 
 
 
@@ -49,17 +50,20 @@ header('Set-Cookie: PHPSESSID='.session_id().'; SameSite=None; Secure');
     /*
      * 가상계좌(무통장) 결제 연동을 하시는 경우 아래 LGD_CASNOTEURL 을 설정하여 주시기 바랍니다. 
      */    
-    $LGD_CASNOTEURL				= "https://localhost:9443/CardAPI/cas_noteurl.php";    
+    $LGD_CASNOTEURL				= "https://" . $server_domain . "/CardAPI/cas_noteurl.php";    
 
     /*
      * LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
      */    
-    $LGD_RETURNURL				= "https://localhost:9443/CardAPI/returnurl.php";  
+    $LGD_RETURNURL				= "https://" . $server_domain . "/CardAPI/returnurl.php";  
 
 
     $configPath                 = "C:/lgdacom";                                  //토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf") 위치 지정.     
 	
 	
+	if(PHP_OS === "Linux"){
+		$configPath             = "/lgdacom";
+	}
 	
     
     /*
@@ -79,7 +83,7 @@ header('Set-Cookie: PHPSESSID='.session_id().'; SameSite=None; Secure');
      * MD5 해쉬데이터 암호화 검증을 위해
      * 토스페이먼츠에서 발급한 상점키(MertKey)를 환경설정 파일(lgdacom/conf/mall.conf)에 반드시 입력하여 주시기 바랍니다.
      */
-    require_once("C:/lgdacom/XPayClient.php");
+    require_once($configPath . "/XPayClient.php");
     $xpay = new XPayClient($configPath, $CST_PLATFORM);
    	$xpay->Init_TX($LGD_MID);
     $LGD_HASHDATA = md5($LGD_MID.$LGD_OID.$LGD_AMOUNT.$LGD_TIMESTAMP.$xpay->config[$LGD_MID]);
