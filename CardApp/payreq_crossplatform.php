@@ -12,6 +12,7 @@
      */
 
 
+    $server_domain = $_SERVER['HTTP_HOST'];
     $CST_PLATFORM               = $_POST["CST_PLATFORM"];                             //토스페이먼츠 결제 서비스 선택(test:테스트, service:서비스)
     $CST_MID                    = $_POST["CST_MID"];                                  //상점아이디(토스페이먼츠으로 부터 발급받으신 상점아이디를 입력하세요)
                                                                                       //테스트 아이디는 't'를 반드시 제외하고 입력하세요.
@@ -40,7 +41,7 @@
 	$LGD_SP_CHAIN_CODE			= $_POST["LGD_SP_CHAIN_CODE"];                        // 간편결제사용여부
 	$LGD_SP_ORDER_USER_ID		= $_POST["LGD_SP_ORDER_USER_ID"];                     // 삼성카드 간편결제 쇼핑몰 ID (삼성카드 간편결제는 사전 협의된 가맹점만 사용 가능합니다)
 	$LGD_POINTUSE				= $_POST["LGD_POINTUSE"];                             // 포인트 사용여부 (값 Y: 사용, N: 미사용)
-    $LGD_RETURNURL				= $_POST["LGD_RETURNURL"];                            // 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다.
+    $LGD_RETURNURL				= "https://" . $server_domain . "/CardApp/returnurl.php"; // 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다.
    
 
 /* 인증 이후 자동 채움되는 필드 입니다. (수정불가) */
@@ -73,7 +74,9 @@
 	$LGD_RESPCODE = "";
 	$LGD_RESPMSG = "";
 
-
+	if(PHP_OS === "Linux"){
+		$configPath             = "/lgdacom";
+	}
    
  
     /*
@@ -93,7 +96,7 @@
      * MD5 해쉬데이터 암호화 검증을 위해
      * 토스페이먼츠에서 발급한 상점키(MertKey)를 환경설정 파일(lgdacom/conf/mall.conf)에 반드시 입력하여 주시기 바랍니다.
      */
-    require_once("C:/lgdacom/XPayClient.php");
+    require_once($configPath . "/XPayClient.php");
     $xpay = new XPayClient($configPath, $CST_PLATFORM);
    	if (!$xpay->Init_TX($LGD_MID)) {
         echo "토스페이먼츠에서 제공한 환경파일이 정상적으로 설치 되었는지 확인하시기 바랍니다.<br/>";
