@@ -146,12 +146,12 @@ header('Set-Cookie: PHPSESSID='.session_id().'; SameSite=None; Secure');
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>토스페이먼츠 eCredit서비스 결제테스트</title>
-<!-- test -->
+<!-- test 
 <script language="javascript" src="https://pretest.tosspayments.com:9443/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
+-->
 <!-- 
-  service  
+  service  -->
 <script language="javascript" src="https://xpayvvip.tosspayments.com/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
- -->
 
 <script type="text/javascript">
 
