@@ -36,6 +36,7 @@
     $xpay->Set("LGD_ACCOUNTNO", $LGD_ACCOUNTNO);
     $xpay->Set("LGD_NAME", $LGD_NAME);
     $xpay->Set("LGD_PRIVATENO", $LGD_PRIVATENO);
+    $xpay->Set("LGD_ENCODING", "UTF-8");
     $xpay->Set("LGD_BUYERIP", $_SERVER["REMOTE_ADDR"]);
        
     if ($xpay->TX()) {
