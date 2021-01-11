@@ -119,15 +119,16 @@ header('Set-Cookie: PHPSESSID='.session_id().'; SameSite=None; Secure');
     // 가상계좌(무통장) 결제연동을 하시는 경우  할당/입금 결과를 통보받기 위해 반드시 LGD_CASNOTEURL 정보를 토스페이먼츠에 전송해야 합니다 .
     $payReqMap['LGD_CASNOTEURL'] = $LGD_CASNOTEURL;               // 가상계좌 NOTEURL
 
-
-    $payReqMap['LGD_SELF_CUSTOM'] 			= $LGD_SELF_CUSTOM;
-    $payReqMap['LGD_CARDTYPE'] 			= $LGD_CARDTYPE;
-    $payReqMap['LGD_INSTALL'] 			= $LGD_INSTALL;
-    $payReqMap['LGD_NOINT'] 			= $LGD_NOINT;
-    $payReqMap['LGD_SP_CHAIN_CODE'] 			= $LGD_SP_CHAIN_CODE;
-    $payReqMap['LGD_SP_ORDER_USER_ID'] 			= $LGD_SP_ORDER_USER_ID;
-    $payReqMap['LGD_POINTUSE'] 			= $LGD_POINTUSE;
-    $payReqMap['LGD_CURRENCY'] 			= $LGD_CURRENCY;
+	if($LGD_CUSTOM_USABLEPAY == 'SC0010'){
+		$payReqMap['LGD_SELF_CUSTOM'] 			= $LGD_SELF_CUSTOM;
+		$payReqMap['LGD_CARDTYPE'] 			= $LGD_CARDTYPE;
+		$payReqMap['LGD_INSTALL'] 			= $LGD_INSTALL;
+		$payReqMap['LGD_NOINT'] 			= $LGD_NOINT;
+		$payReqMap['LGD_SP_CHAIN_CODE'] 			= $LGD_SP_CHAIN_CODE;
+		$payReqMap['LGD_SP_ORDER_USER_ID'] 			= $LGD_SP_ORDER_USER_ID;
+		$payReqMap['LGD_POINTUSE'] 			= $LGD_POINTUSE;
+		$payReqMap['LGD_CURRENCY'] 			= $LGD_CURRENCY;
+	}
 
     $payReqMap['LGD_ENCODING'] 			        = "UTF-8";
 	$payReqMap['LGD_ENCODING_RETURNURL'] 		= "UTF-8";
