@@ -15,6 +15,7 @@
      *
      * 인증기본정보를 변경하여 주시기 바랍니다. 
      */
+    $server_domain = $_SERVER['HTTP_HOST'];
     $CST_PLATFORM               = $_POST["CST_PLATFORM"];                       //토스페이먼츠 서비스 선택(test:테스트, service:서비스)
     $CST_MID                    = $_POST["CST_MID"];                            //상점아이디(토스페이먼츠으로 부터 발급받으신 상점아이디를 입력하세요)
                                                                                 //테스트 아이디는 't'를 반드시 제외하고 입력하세요.(CST_MID: LGD_MID를 설정하기 위한 상점아이디)
@@ -36,10 +37,13 @@
     $LGD_WINDOW_TYPE            = $_POST["LGD_WINDOW_TYPE"];					//본인확인창 호출 방식 (수정불가)  
 
     // LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
-    $LGD_RETURNURL              = "https://localhost:9443/AuthOnly/returnurl.php";         
+    $LGD_RETURNURL              = "https://" . $server_domain . "/AuthOnly/returnurl.php";         
 	
 	$configPath					= "C:/lgdacom"; //토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf,/conf/mall.conf") 위치 지정.
 	
+	if(PHP_OS === "Linux"){
+		$configPath             = "/lgdacom";
+	}
 	/*
 	*************************************************
 	* 2. MD5 해쉬암호화 (수정하지 마세요) - BEGIN
@@ -57,7 +61,7 @@
 	* 토스페이먼츠에서 발급한 상점키(MertKey)를 환경설정 파일(lgdacom/conf/mall.conf)에 반드시 입력하여 주시기 바랍니다.
 	*/
 	
-	require_once("C:/lgdacom/XPayClient.php");
+    require_once($configPath . "/XPayClient.php");
 	$xpay = new XPayClient($configPath, $CST_PLATFORM);
 
 	if (!$xpay->Init_TX($LGD_MID)) {

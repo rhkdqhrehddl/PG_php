@@ -15,6 +15,9 @@
 
 	$configPath = "C:/lgdacom"; //토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf,/conf/mall.conf") 위치 지정.
 	
+	if(PHP_OS === "Linux"){
+		$configPath             = "/lgdacom";
+	}
 	/*
 	 *************************************************
 	 * 1.최종인증 요청 - BEGIN
@@ -29,7 +32,7 @@
 	
 	
 	// PHP용 XpayClient 모듈
-	require_once("C:/lgdacom/XPayClient.php");
+    require_once($configPath . "/XPayClient.php");
 
 	// (1) XpayClient의 사용을 위한 xpay 객체 생성
 	// (2) Init: XPayClient 초기화(환경설정 파일 로드) 
