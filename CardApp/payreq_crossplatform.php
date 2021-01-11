@@ -125,7 +125,7 @@
   service일 경우 아래 URL을 사용 
  -->
  <script language="javascript" src="https://xpayvvip.uplus.co.kr/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
- --
+ 
 <script type="text/javascript">
 
 /*

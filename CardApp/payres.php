@@ -81,6 +81,7 @@
 	$xpay->Set("LGD_POINTUSE", $LGD_POINTUSE);
     $xpay->Set("LGD_BUYERIP", $_SERVER["REMOTE_ADDR"]);
     $xpay->Set("LGD_CURRENCY", $LGD_CURRENCY);
+	$xpay->Set("LGD_ENCODING", "UTF-8");
     
   	if ($LGD_AUTHTYPE == "ISP"){    	 			//ISP 결제
 		$xpay->Set("KVP_QUOTA", $KVP_QUOTA);
