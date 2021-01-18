@@ -23,7 +23,8 @@
     $LGD_BUYEREMAIL             = $_POST["LGD_BUYEREMAIL"];				//구매자 이메일
     $LGD_CUSTOM_FIRSTPAY        = $_POST["LGD_CUSTOM_FIRSTPAY"];		//상점정의 초기결제수단
     $LGD_PCVIEWYN				= $_POST["LGD_PCVIEWYN"];				//휴대폰번호 입력 화면 사용 여부(유심칩이 없는 단말기에서 입력-->유심칩이 있는 휴대폰에서 실제 결제)
-	$LGD_CUSTOM_SKIN            = "SMART_XPAY2";                        //상점정의 결제창 스킨
+    $LGD_CUSTOM_SKIN            = "SMART_XPAY2";                        //상점정의 결제창 스킨
+    $LGD_CUSTOM_USABLEPAY       = $_POST["LGD_CUSTOM_USABLEPAY"];
 	$server_domain = $_SERVER['HTTP_HOST'];
     
 	$configPath 				= "C:/lgdacom"; 						//토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf") 위치 지정. 	    
@@ -108,7 +109,8 @@
     $payReqMap['LGD_VERSION']         	 = "PHP_Non-ActiveX_SmartXPay";	// 버전정보 (삭제하지 마세요)
     $payReqMap['LGD_CUSTOM_FIRSTPAY']  	 = $LGD_CUSTOM_FIRSTPAY;		// 디폴트 결제수단
 	$payReqMap['LGD_PCVIEWYN']			 = $LGD_PCVIEWYN;				// 휴대폰번호 입력 화면 사용 여부(유심칩이 없는 단말기에서 입력-->유심칩이 있는 휴대폰에서 실제 결제)
-	$payReqMap['LGD_CUSTOM_SWITCHINGTYPE']  = "SUBMIT";					// 신용카드 카드사 인증 페이지 연동 방식
+    $payReqMap['LGD_CUSTOM_SWITCHINGTYPE']  = "SUBMIT";					// 신용카드 카드사 인증 페이지 연동 방식
+    $payReqMap['LGD_CUSTOM_USABLEPAY']     = $LGD_CUSTOM_USABLEPAY;
 	
 	
 	//iOS 연동시 필수
