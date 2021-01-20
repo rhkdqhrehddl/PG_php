@@ -4,40 +4,40 @@
     /*
      * 
      *     
-     * ±âº» ÆÄ¶ó¹ÌÅÍ¸¸ ¿¹½ÃµÇ¾î ÀÖÀ¸¸ç, º°µµ·Î ÇÊ¿äÇÏ½Å ÆÄ¶ó¹ÌÅÍ´Â ¿¬µ¿¸Þ´º¾óÀ» Âü°íÇÏ½Ã¾î Ãß°¡ÇÏ½Ã±â ¹Ù¶ø´Ï´Ù. 
+     * ê¸°ë³¸ íŒŒë¼ë¯¸í„°ë§Œ ì˜ˆì‹œë˜ì–´ ìžˆìœ¼ë©°, ë³„ë„ë¡œ í•„ìš”í•˜ì‹  íŒŒë¼ë¯¸í„°ëŠ” ì—°ë™ë©”ë‰´ì–¼ì„ ì°¸ê³ í•˜ì‹œì–´ ì¶”ê°€í•˜ì‹œê¸° ë°”ëžë‹ˆë‹¤. 
      *
      */
 
      
     /*
-	 * [»óÁ¡ÀÎÁõ¿äÃ» ÆäÀÌÁö]
-     * 1. ±âº»ÀÎÁõÁ¤º¸ º¯°æ
+	 * [ìƒì ì¸ì¦ìš”ì²­ íŽ˜ì´ì§€]
+     * 1. ê¸°ë³¸ì¸ì¦ì •ë³´ ë³€ê²½
      *
-     * ÀÎÁõ±âº»Á¤º¸¸¦ º¯°æÇÏ¿© ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù. 
+     * ì¸ì¦ê¸°ë³¸ì •ë³´ë¥¼ ë³€ê²½í•˜ì—¬ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤. 
      */
 	$server_domain = $_SERVER['HTTP_HOST'];
-    $CST_PLATFORM               = $_POST["CST_PLATFORM"];                       //Åä½ºÆäÀÌ¸ÕÃ÷ °áÁ¦ ¼­ºñ½º ¼±ÅÃ(test:Å×½ºÆ®, service:¼­ºñ½º)
-    $CST_MID                    = $_POST["CST_MID"];                            //»óÁ¡¾ÆÀÌµð(LGÀ¯ÇÃ·¯½ºÀ¸·Î ºÎÅÍ ¹ß±Þ¹ÞÀ¸½Å »óÁ¡¾ÆÀÌµð¸¦ ÀÔ·ÂÇÏ¼¼¿ä)
-                                                                                //Å×½ºÆ® ¾ÆÀÌµð´Â 't'¸¦ ¹Ýµå½Ã Á¦¿ÜÇÏ°í ÀÔ·ÂÇÏ¼¼¿ä.
-	$LGD_MID                    = (("test" == $CST_PLATFORM)?"t":"").$CST_MID;  //»óÁ¡¾ÆÀÌµð(ÀÚµ¿»ý¼º)
+    $CST_PLATFORM               = $_POST["CST_PLATFORM"];                       //í† ìŠ¤íŽ˜ì´ë¨¼ì¸  ê²°ì œ ì„œë¹„ìŠ¤ ì„ íƒ(test:í…ŒìŠ¤íŠ¸, service:ì„œë¹„ìŠ¤)
+    $CST_MID                    = $_POST["CST_MID"];                            //ìƒì ì•„ì´ë””(LGìœ í”ŒëŸ¬ìŠ¤ìœ¼ë¡œ ë¶€í„° ë°œê¸‰ë°›ìœ¼ì‹  ìƒì ì•„ì´ë””ë¥¼ ìž…ë ¥í•˜ì„¸ìš”)
+                                                                                //í…ŒìŠ¤íŠ¸ ì•„ì´ë””ëŠ” 't'ë¥¼ ë°˜ë“œì‹œ ì œì™¸í•˜ê³  ìž…ë ¥í•˜ì„¸ìš”.
+	$LGD_MID                    = (("test" == $CST_PLATFORM)?"t":"").$CST_MID;  //ìƒì ì•„ì´ë””(ìžë™ìƒì„±)
     
-    $LGD_BUYER		            = $_POST["LGD_BUYER"];                        	//¼º¸í
-    $LGD_BUYERSSN               = $_POST["LGD_BUYERSSN"];                       //ÀÎÁõ¿äÃ»ÀÚ »ý³â¿ùÀÏ 6ÀÚ¸® (YYMMDD) or »ç¾÷ÀÚ¹øÈ£ 10ÀÚ¸®
+    $LGD_BUYER		            = $_POST["LGD_BUYER"];                        	//ì„±ëª…
+    $LGD_BUYERSSN               = $_POST["LGD_BUYERSSN"];                       //ì¸ì¦ìš”ì²­ìž ìƒë…„ì›”ì¼ 6ìžë¦¬ (YYMMDD) or ì‚¬ì—…ìžë²ˆí˜¸ 10ìžë¦¬
 
-	$LGD_NAMECHECKYN		 	= $_POST["LGD_NAMECHECKYN"];					//°èÁÂ½Ç¸íÈ®ÀÎ¿©ºÎ
-	$LGD_HOLDCHECKYN 			= $_POST["LGD_HOLDCHECKYN"];					//ÈÞ´ëÆùº»ÀÎÈ®ÀÎ SMS¹ß¼Û ¿©ºÎ
-	$LGD_MOBILE_SUBAUTH_SITECD 	= $_POST["LGD_MOBILE_SUBAUTH_SITECD"];			//½Å¿ëÆò°¡»ç¿¡¼­ ºÎ¿©¹ÞÀº È¸¿ø»ç °íÀ¯ ÄÚµå
-																				//(CI°ª¸¸ ÇÊ¿äÇÑ °æ¿ì ¿É¼Ç, DI°ªµµ ÇÊ¿äÇÑ °æ¿ì ÇÊ¼ö)
-    $LGD_CUSTOM_USABLEPAY  		= $_POST["LGD_CUSTOM_USABLEPAY"];               //[¹Ýµå½Ã ¼³Á¤ ÇÊ¿ä]»óÁ¡Á¤ÀÇ ÀÌ¿ë°¡´É ÀÎÁõ¼ö´ÜÀ¸·Î ÇÑ °³ÀÇ °ª¸¸ ¼³Á¤ (¿¹:"ASC007")
-    $LGD_TIMESTAMP        		= $_POST["LGD_TIMESTAMP"];                		//Å¸ÀÓ½ºÅÆÇÁ(YYYYMMDDhhmmss)
-    $LGD_CUSTOM_SKIN      		= "SMART_XPAY2";								//°áÁ¦Ã¢ SKIN
-    $LGD_WINDOW_TYPE            = $_POST["LGD_WINDOW_TYPE"];					//ÀÎÁõÃ¢ È£Ãâ ¹æ½Ä (¼öÁ¤ºÒ°¡)  
+	$LGD_NAMECHECKYN		 	= $_POST["LGD_NAMECHECKYN"];					//ê³„ì¢Œì‹¤ëª…í™•ì¸ì—¬ë¶€
+	$LGD_HOLDCHECKYN 			= $_POST["LGD_HOLDCHECKYN"];					//íœ´ëŒ€í°ë³¸ì¸í™•ì¸ SMSë°œì†¡ ì—¬ë¶€
+	$LGD_MOBILE_SUBAUTH_SITECD 	= $_POST["LGD_MOBILE_SUBAUTH_SITECD"];			//ì‹ ìš©í‰ê°€ì‚¬ì—ì„œ ë¶€ì—¬ë°›ì€ íšŒì›ì‚¬ ê³ ìœ  ì½”ë“œ
+																				//(CIê°’ë§Œ í•„ìš”í•œ ê²½ìš° ì˜µì…˜, DIê°’ë„ í•„ìš”í•œ ê²½ìš° í•„ìˆ˜)
+    $LGD_CUSTOM_USABLEPAY  		= $_POST["LGD_CUSTOM_USABLEPAY"];               //[ë°˜ë“œì‹œ ì„¤ì • í•„ìš”]ìƒì ì •ì˜ ì´ìš©ê°€ëŠ¥ ì¸ì¦ìˆ˜ë‹¨ìœ¼ë¡œ í•œ ê°œì˜ ê°’ë§Œ ì„¤ì • (ì˜ˆ:"ASC007")
+    $LGD_TIMESTAMP        		= $_POST["LGD_TIMESTAMP"];                		//íƒ€ìž„ìŠ¤íƒ¬í”„(YYYYMMDDhhmmss)
+    $LGD_CUSTOM_SKIN      		= "SMART_XPAY2";								//ê²°ì œì°½ SKIN
+    $LGD_WINDOW_TYPE            = $_POST["LGD_WINDOW_TYPE"];					//ì¸ì¦ì°½ í˜¸ì¶œ ë°©ì‹ (ìˆ˜ì •ë¶ˆê°€)  
     
 
-    //  LGD_RETURNURL À» ¼³Á¤ÇÏ¿© ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù. ¹Ýµå½Ã ÇöÀç ÆäÀÌÁö¿Í µ¿ÀÏÇÑ ÇÁ·ÎÆ®ÄÝ ¹×  È£½ºÆ®ÀÌ¾î¾ß ÇÕ´Ï´Ù. ¾Æ·¡ ºÎºÐÀ» ¹Ýµå½Ã ¼öÁ¤ÇÏ½Ê½Ã¿ä.
+    //  LGD_RETURNURL ì„ ì„¤ì •í•˜ì—¬ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤. ë°˜ë“œì‹œ í˜„ìž¬ íŽ˜ì´ì§€ì™€ ë™ì¼í•œ í”„ë¡œíŠ¸ì½œ ë°  í˜¸ìŠ¤íŠ¸ì´ì–´ì•¼ í•©ë‹ˆë‹¤. ì•„ëž˜ ë¶€ë¶„ì„ ë°˜ë“œì‹œ ìˆ˜ì •í•˜ì‹­ì‹œìš”.
     $LGD_RETURNURL              = "https://" . $server_domain . "/MobileAuthOnly/returnurl.php";         
 	
-	$configPath					= "C:/lgdacom"; //LGÀ¯ÇÃ·¯½º¿¡¼­ Á¦°øÇÑ È¯°æÆÄÀÏ("/conf/lgdacom.conf,/conf/mall.conf") À§Ä¡ ÁöÁ¤.
+	$configPath					= "C:/lgdacom"; //LGìœ í”ŒëŸ¬ìŠ¤ì—ì„œ ì œê³µí•œ í™˜ê²½íŒŒì¼("/conf/lgdacom.conf,/conf/mall.conf") ìœ„ì¹˜ ì§€ì •.
 	
 	if(PHP_OS === "Linux"){
 		$configPath             = "/lgdacom";
@@ -45,65 +45,67 @@
 	
 	/*
 	*************************************************
-	* 2. MD5 ÇØ½¬¾ÏÈ£È­ (¼öÁ¤ÇÏÁö ¸¶¼¼¿ä) - BEGIN
+	* 2. MD5 í•´ì‰¬ì•”í˜¸í™” (ìˆ˜ì •í•˜ì§€ ë§ˆì„¸ìš”) - BEGIN
 	* 
-	* MD5 ÇØ½¬¾ÏÈ£È­´Â °Å·¡ À§º¯Á¶¸¦ ¸·±âÀ§ÇÑ ¹æ¹ýÀÔ´Ï´Ù. 
+	* MD5 í•´ì‰¬ì•”í˜¸í™”ëŠ” ê±°ëž˜ ìœ„ë³€ì¡°ë¥¼ ë§‰ê¸°ìœ„í•œ ë°©ë²•ìž…ë‹ˆë‹¤. 
 	*************************************************
 	*
-	* ÇØ½¬ ¾ÏÈ£È­ Àû¿ë( LGD_MID + LGD_OID + LGD_AMOUNT + LGD_TIMESTAMP + LGD_MERTKEY )
-	* LGD_MID          	: »óÁ¡¾ÆÀÌµð
-	* LGD_BUYERSSN		: »ý³â¿ùÀÏ / »ç¾÷ÀÚ¹øÈ£
-	* LGD_TIMESTAMP  	: Å¸ÀÓ½ºÅÆÇÁ
-	* LGD_MERTKEY      	: »óÁ¡MertKey (mertkey´Â »óÁ¡°ü¸®ÀÚ -> °è¾àÁ¤º¸ -> »óÁ¡Á¤º¸°ü¸®¿¡¼­ È®ÀÎÇÏ½Ç¼ö ÀÖ½À´Ï´Ù)
+	* í•´ì‰¬ ì•”í˜¸í™” ì ìš©( LGD_MID + LGD_OID + LGD_AMOUNT + LGD_TIMESTAMP + LGD_MERTKEY )
+	* LGD_MID          	: ìƒì ì•„ì´ë””
+	* LGD_BUYERSSN		: ìƒë…„ì›”ì¼ / ì‚¬ì—…ìžë²ˆí˜¸
+	* LGD_TIMESTAMP  	: íƒ€ìž„ìŠ¤íƒ¬í”„
+	* LGD_MERTKEY      	: ìƒì MertKey (mertkeyëŠ” ìƒì ê´€ë¦¬ìž -> ê³„ì•½ì •ë³´ -> ìƒì ì •ë³´ê´€ë¦¬ì—ì„œ í™•ì¸í•˜ì‹¤ìˆ˜ ìžˆìŠµë‹ˆë‹¤)
 	*
-	* MD5 ÇØ½¬µ¥ÀÌÅÍ ¾ÏÈ£È­ °ËÁõÀ» À§ÇØ
-	* LGÀ¯ÇÃ·¯½º¿¡¼­ ¹ß±ÞÇÑ »óÁ¡Å°(MertKey)¸¦ È¯°æ¼³Á¤ ÆÄÀÏ(lgdacom/conf/mall.conf)¿¡ ¹Ýµå½Ã ÀÔ·ÂÇÏ¿© ÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.
+	* MD5 í•´ì‰¬ë°ì´í„° ì•”í˜¸í™” ê²€ì¦ì„ ìœ„í•´
+	* LGìœ í”ŒëŸ¬ìŠ¤ì—ì„œ ë°œê¸‰í•œ ìƒì í‚¤(MertKey)ë¥¼ í™˜ê²½ì„¤ì • íŒŒì¼(lgdacom/conf/mall.conf)ì— ë°˜ë“œì‹œ ìž…ë ¥í•˜ì—¬ ì£¼ì‹œê¸° ë°”ëžë‹ˆë‹¤.
 	*/
 	
     require_once($configPath . "/XPayClient.php");
 	$xpay = &new XPayClient($configPath, $CST_PLATFORM);
 	
 	if (!$xpay->Init_TX($LGD_MID)) {
-    	echo "LGÀ¯ÇÃ·¯½º¿¡¼­ Á¦°øÇÑ È¯°æÆÄÀÏÀÌ Á¤»óÀûÀ¸·Î ¼³Ä¡ µÇ¾ú´ÂÁö È®ÀÎÇÏ½Ã±â ¹Ù¶ø´Ï´Ù.<br/>";
-    	echo "mall.conf¿¡´Â Mert Id = Mert Key °¡ ¹Ýµå½Ã µî·ÏµÇ¾î ÀÖ¾î¾ß ÇÕ´Ï´Ù.<br/><br/>";
-    	echo "¹®ÀÇÀüÈ­ Åä½ºÆäÀÌ¸ÕÃ÷ 1544-7772<br/>";
+    	echo "LGìœ í”ŒëŸ¬ìŠ¤ì—ì„œ ì œê³µí•œ í™˜ê²½íŒŒì¼ì´ ì •ìƒì ìœ¼ë¡œ ì„¤ì¹˜ ë˜ì—ˆëŠ”ì§€ í™•ì¸í•˜ì‹œê¸° ë°”ëžë‹ˆë‹¤.<br/>";
+    	echo "mall.confì—ëŠ” Mert Id = Mert Key ê°€ ë°˜ë“œì‹œ ë“±ë¡ë˜ì–´ ìžˆì–´ì•¼ í•©ë‹ˆë‹¤.<br/><br/>";
+    	echo "ë¬¸ì˜ì „í™” í† ìŠ¤íŽ˜ì´ë¨¼ì¸  1544-7772<br/>";
     	exit;
     }
     
 	$LGD_HASHDATA = md5($LGD_MID.$LGD_BUYERSSN.$LGD_TIMESTAMP.$xpay->config[$LGD_MID]);    
 	/*
 	*************************************************
-	* 2. MD5 ÇØ½¬¾ÏÈ£È­ (¼öÁ¤ÇÏÁö ¸¶¼¼¿ä) - END
+	* 2. MD5 í•´ì‰¬ì•”í˜¸í™” (ìˆ˜ì •í•˜ì§€ ë§ˆì„¸ìš”) - END
 	*************************************************
 	*/
      
 	
 	
-	$payReqMap['CST_PLATFORM']              = $CST_PLATFORM;           				// Å×½ºÆ®, ¼­ºñ½º ±¸ºÐ
-	$payReqMap['CST_MID']                   = $CST_MID;                				// »óÁ¡¾ÆÀÌµð
-	$payReqMap['LGD_MID']                   = $LGD_MID;                				// »óÁ¡¾ÆÀÌµð
-	$payReqMap['LGD_HASHDATA'] 				= $LGD_HASHDATA;      	           		// MD5 ÇØ½¬¾ÏÈ£°ª
-	$payReqMap['LGD_BUYER']              	= $LGD_BUYER;							// ¿äÃ»ÀÚ ¼º¸í
-	$payReqMap['LGD_BUYERSSN']              = $LGD_BUYERSSN;           				// ¿äÃ»ÀÚ »ý³â¿ùÀÏ / »ç¾÷ÀÚ¹øÈ£
+	$payReqMap['CST_PLATFORM']              = $CST_PLATFORM;           				// í…ŒìŠ¤íŠ¸, ì„œë¹„ìŠ¤ êµ¬ë¶„
+	$payReqMap['CST_MID']                   = $CST_MID;                				// ìƒì ì•„ì´ë””
+	$payReqMap['LGD_MID']                   = $LGD_MID;                				// ìƒì ì•„ì´ë””
+	$payReqMap['LGD_HASHDATA'] 				= $LGD_HASHDATA;      	           		// MD5 í•´ì‰¬ì•”í˜¸ê°’
+	$payReqMap['LGD_BUYER']              	= $LGD_BUYER;							// ìš”ì²­ìž ì„±ëª…
+	$payReqMap['LGD_BUYERSSN']              = $LGD_BUYERSSN;           				// ìš”ì²­ìž ìƒë…„ì›”ì¼ / ì‚¬ì—…ìžë²ˆí˜¸
 	
-	$payReqMap['LGD_NAMECHECKYN']           = $LGD_NAMECHECKYN;           			// °èÁÂ½Ç¸íÈ®ÀÎ¿©ºÎ
-	$payReqMap['LGD_HOLDCHECKYN']           = $LGD_HOLDCHECKYN;           			// ÈÞ´ëÆùº»ÀÎÈ®ÀÎ SMS¹ß¼Û ¿©ºÎ
-	$payReqMap['LGD_MOBILE_SUBAUTH_SITECD'] = $LGD_MOBILE_SUBAUTH_SITECD;           // ½Å¿ëÆò°¡»ç¿¡¼­ ºÎ¿©¹ÞÀº È¸¿ø»ç °íÀ¯ ÄÚµå
+	$payReqMap['LGD_NAMECHECKYN']           = $LGD_NAMECHECKYN;           			// ê³„ì¢Œì‹¤ëª…í™•ì¸ì—¬ë¶€
+	$payReqMap['LGD_HOLDCHECKYN']           = $LGD_HOLDCHECKYN;           			// íœ´ëŒ€í°ë³¸ì¸í™•ì¸ SMSë°œì†¡ ì—¬ë¶€
+	$payReqMap['LGD_MOBILE_SUBAUTH_SITECD'] = $LGD_MOBILE_SUBAUTH_SITECD;           // ì‹ ìš©í‰ê°€ì‚¬ì—ì„œ ë¶€ì—¬ë°›ì€ íšŒì›ì‚¬ ê³ ìœ  ì½”ë“œ
 	
-	$payReqMap['LGD_CUSTOM_SKIN'] 			= $LGD_CUSTOM_SKIN;                		// °áÁ¦Ã¢ SKIN
-	$payReqMap['LGD_TIMESTAMP'] 			= $LGD_TIMESTAMP;                  		// Å¸ÀÓ½ºÅÆÇÁ
-	$payReqMap['LGD_CUSTOM_USABLEPAY']      = $LGD_CUSTOM_USABLEPAY;        		// [¹Ýµå½Ã ¼³Á¤]»óÁ¡Á¤ÀÇ ÀÌ¿ë°¡´É ÀÎÁõ¼ö´ÜÀ¸·Î ÇÑ °³ÀÇ °ª¸¸ ¼³Á¤ (¿¹:"ASC007")
-	$payReqMap['LGD_WINDOW_TYPE']           = $LGD_WINDOW_TYPE;        				// È£Ãâ¹æ½Ä (¼öÁ¤ºÒ°¡)
-	$payReqMap['LGD_RETURNURL'] 			= $LGD_RETURNURL;      			   		// ÀÀ´ä¼ö½ÅÆäÀÌÁö
-	$payReqMap['LGD_VERSION'] 				= "PHP_Non-ActiveX_SmartXPay_AuthOnly";	// »ç¿ëÅ¸ÀÔ Á¤º¸(¼öÁ¤ ¹× »èÁ¦ ±ÝÁö): ÀÌ Á¤º¸¸¦ ±Ù°Å·Î ¾î¶² ¼­ºñ½º¸¦ »ç¿ëÇÏ´ÂÁö ÆÇ´ÜÇÒ ¼ö ÀÖ½À´Ï´Ù.
-	$payReqMap['LGD_CUSTOM_SWITCHINGTYPE'] 	= "SUBMIT";								// SUBMIT: ÆäÀÌÁö ÀüÈ¯¹æ½Ä(°ªÀ» ¼¼¼ÇÀ¸·Î À¯Áö, ¼öÁ¤ºÒ°¡)
+	$payReqMap['LGD_CUSTOM_SKIN'] 			= $LGD_CUSTOM_SKIN;                		// ê²°ì œì°½ SKIN
+	$payReqMap['LGD_TIMESTAMP'] 			= $LGD_TIMESTAMP;                  		// íƒ€ìž„ìŠ¤íƒ¬í”„
+	$payReqMap['LGD_CUSTOM_USABLEPAY']      = $LGD_CUSTOM_USABLEPAY;        		// [ë°˜ë“œì‹œ ì„¤ì •]ìƒì ì •ì˜ ì´ìš©ê°€ëŠ¥ ì¸ì¦ìˆ˜ë‹¨ìœ¼ë¡œ í•œ ê°œì˜ ê°’ë§Œ ì„¤ì • (ì˜ˆ:"ASC007")
+	$payReqMap['LGD_WINDOW_TYPE']           = $LGD_WINDOW_TYPE;        				// í˜¸ì¶œë°©ì‹ (ìˆ˜ì •ë¶ˆê°€)
+	$payReqMap['LGD_RETURNURL'] 			= $LGD_RETURNURL;      			   		// ì‘ë‹µìˆ˜ì‹ íŽ˜ì´ì§€
+	$payReqMap['LGD_VERSION'] 				= "PHP_Non-ActiveX_SmartXPay_AuthOnly";	// ì‚¬ìš©íƒ€ìž… ì •ë³´(ìˆ˜ì • ë° ì‚­ì œ ê¸ˆì§€): ì´ ì •ë³´ë¥¼ ê·¼ê±°ë¡œ ì–´ë–¤ ì„œë¹„ìŠ¤ë¥¼ ì‚¬ìš©í•˜ëŠ”ì§€ íŒë‹¨í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
+	$payReqMap['LGD_CUSTOM_SWITCHINGTYPE'] 	= "SUBMIT";								// SUBMIT: íŽ˜ì´ì§€ ì „í™˜ë°©ì‹(ê°’ì„ ì„¸ì…˜ìœ¼ë¡œ ìœ ì§€, ìˆ˜ì •ë¶ˆê°€)
 	$payReqMap['LGD_DOMAIN_URL'] 		 	= "xpayvvip";	
 	
-	/*Return URL¿¡¼­ ÀÎÁõ °á°ú ¼ö½Å ½Ã ¼ÂÆÃµÉ ÆÄ¶ó¹ÌÅÍ ÀÔ´Ï´Ù.*/
+	/*Return URLì—ì„œ ì¸ì¦ ê²°ê³¼ ìˆ˜ì‹  ì‹œ ì…‹íŒ…ë  íŒŒë¼ë¯¸í„° ìž…ë‹ˆë‹¤.*/
 	$payReqMap['LGD_RESPCODE'] 				= "";
 	$payReqMap['LGD_RESPMSG'] 				= "";
 	$payReqMap['LGD_AUTHONLYKEY'] 			= "";
 	$payReqMap['LGD_PAYTYPE'] 				= "";
+    $payReqMap['LGD_ENCODING'] 			        = "UTF-8";
+	$payReqMap['LGD_ENCODING_RETURNURL'] 		= "UTF-8";
 	
 	
 	$_SESSION['PAYREQ_MAP'] = $payReqMap;
@@ -114,11 +116,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Åä½ºÆäÀÌ¸ÕÃ÷ ÀüÀÚ°áÁ¦ º»ÀÎÈ®ÀÎ¼­ºñ½º  »ùÇÃ ÆäÀÌÁö</title>
-<!-- testÀÏ °æ¿ì -->
+<title>í† ìŠ¤íŽ˜ì´ë¨¼ì¸  ì „ìžê²°ì œ ë³¸ì¸í™•ì¸ì„œë¹„ìŠ¤  ìƒ˜í”Œ íŽ˜ì´ì§€</title>
+<!-- testì¼ ê²½ìš° -->
 <script language="javascript" src="https://pretest.tosspayments.com:9443/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
 <!-- 
-  serviceÀÏ °æ¿ì ¾Æ·¡ URLÀ» »ç¿ë 
+  serviceì¼ ê²½ìš° ì•„ëž˜ URLì„ ì‚¬ìš© 
 <script language="javascript" src="https://xpay.tosspayments.com/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
  -->
 <script type="text/javascript">
@@ -128,13 +130,13 @@ var LGD_window_type = '<?=$LGD_WINDOW_TYPE?>';
 /*
 
 /*
-* ¼öÁ¤ºÒ°¡
+* ìˆ˜ì •ë¶ˆê°€
 */
 function launchCrossPlatform(){
       lgdwin = open_paymentwindow(document.getElementById('LGD_PAYINFO'), '<?= $CST_PLATFORM ?>', LGD_window_type);
 }
 /*
-* FORM ¸í¸¸  ¼öÁ¤ °¡´É
+* FORM ëª…ë§Œ  ìˆ˜ì • ê°€ëŠ¥
 */
 function getFormObject() {
         return document.getElementById("LGD_PAYINFO");
@@ -146,66 +148,66 @@ function getFormObject() {
 <form method="post" id="LGD_PAYINFO">
 <table>	
 	<tr>
-		<td>»óÁ¡¾ÆÀÌµð(t¸¦ Á¦¿ÜÇÑ ¾ÆÀÌµð) </td>
+		<td>ìƒì ì•„ì´ë””(të¥¼ ì œì™¸í•œ ì•„ì´ë””) </td>
 		<td><?= $CST_MID ?></td>
 	</tr>
 	<tr>
-	    <td>»óÁ¡¾ÆÀÌµð</td>
+	    <td>ìƒì ì•„ì´ë””</td>
 	    <td><?= $LGD_MID ?></td>
 	</tr>			
 	<tr>
-	    <td>¼­ºñ½º,Å×½ºÆ® </td>
+	    <td>ì„œë¹„ìŠ¤,í…ŒìŠ¤íŠ¸ </td>
 	    <td><?= $CST_PLATFORM ?></td>
 	</tr>
 	<tr>
 	    <td>
-			»ý³â¿ùÀÏ <br/>
-			¶Ç´Â »ç¾÷ÀÚ¹øÈ£
+			ìƒë…„ì›”ì¼ <br/>
+			ë˜ëŠ” ì‚¬ì—…ìžë²ˆí˜¸
 		</td>
 	    <td><?= $LGD_BUYERSSN ?></td>
 	</tr>
 	<tr>
-	    <td>¼º¸í</td>
+	    <td>ì„±ëª…</td>
 	    <td><?= $LGD_BUYER ?></td>
 	</tr>
 	<tr>
-	    <td>À¥»çÀÌÆ®ÄÚµå(¿É¼Ç)</td>
+	    <td>ì›¹ì‚¬ì´íŠ¸ì½”ë“œ(ì˜µì…˜)</td>
 	    <td><?= $LGD_MOBILE_SUBAUTH_SITECD ?></td>
 	</tr>
 	<tr>
-	    <td>Å¸ÀÓ½ºÅÆÇÁ</td>
+	    <td>íƒ€ìž„ìŠ¤íƒ¬í”„</td>
 	    <td><?= $LGD_TIMESTAMP ?></td>
 	</tr>
 	<tr>
-	    <td>°ËÁõµ¥ÀÌÅÍ</td>
+	    <td>ê²€ì¦ë°ì´í„°</td>
 	    <td><?= $LGD_HASHDATA ?></td>
 	</tr>
 	<tr>
-	    <td>ÈÞ´ëÆùº»ÀÎÈ®ÀÎSMS¹ß¼Û¿©ºÎ</td>
+	    <td>íœ´ëŒ€í°ë³¸ì¸í™•ì¸SMSë°œì†¡ì—¬ë¶€</td>
 	    <td>
 			<?=$LGD_HOLDCHECKYN ?>
 		</td>
 	</tr>
 	
 	<tr>
-	    <td>ÀÎÁõÃ¢ ½ºÅ² color</td>
+	    <td>ì¸ì¦ì°½ ìŠ¤í‚¨ color</td>
 	    <td>
 			<?=$LGD_CUSTOM_SKIN ?>
 		</td>
 	</tr>
 	<tr>
-	    <td>ÀÎÁõÃ¢ È£Ãâ ¹æ½Ä </td>
+	    <td>ì¸ì¦ì°½ í˜¸ì¶œ ë°©ì‹ </td>
 	    <td>
 			<?=$LGD_WINDOW_TYPE ?>
 		</td>
 	</tr>													
 	<tr>
 		<td>
-			<input type="button" value="ÀÎÁõ¿äÃ»" onclick="launchCrossPlatform();"/>
+			<input type="button" value="ì¸ì¦ìš”ì²­" onclick="launchCrossPlatform();"/>
    		</td>
 	</tr>
 </table>
-<!-- UTF-8 ÀÎÄÚµù½Ã »ç¿ë
+<!-- UTF-8 ì¸ì½”ë”©ì‹œ ì‚¬ìš©
 <input type="text" name="LGD_ENCODING" value="UTF-8"/>
 -->
 <?php
