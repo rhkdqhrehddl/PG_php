@@ -212,7 +212,7 @@ function getFormObject() {
 -->
 <?php
   foreach ($payReqMap as $key => $value) {
-    echo "<input type='text' name='$key' id='$key' value='$value'/>";
+    echo "<input type='hidden' name='$key' id='$key' value='$value'/>";
   }
   var_dump($_SESSION);
 ?>
