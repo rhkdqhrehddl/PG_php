@@ -106,7 +106,7 @@
 	$payReqMap['LGD_DOMAIN_URL'] 			= "xpayvvip";
 
     //신용카드 자체창 방식
-	if($LGD_CUSTOM_USABLEPAY == 'SC0010'){
+	if($LGD_CUSTOM_FIRSTPAY == 'SC0010'){
 		$payReqMap['LGD_CARDTYPE']                = $LGD_CARDTYPE;					// 카드선택
 		$payReqMap['LGD_INSTALL']                = $LGD_INSTALL;					// 할부개월
 		$payReqMap['LGD_NOINT']                = $LGD_NOINT;					// 무이자여부
