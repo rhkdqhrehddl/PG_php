@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>토스페이먼츠 전자결제 샘플 페이지 (XPay)</title>
+</head>
+<body>
+<form method="post" id="LGD_PAYINFO" action="payreq_crossplatform.php">
+    <div>
+        <table>
+            <tr>
+                <td>상점아이디(t를 제외한 아이디) </td>
+                <td><input type="text" name="CST_MID" value=""/></td>
+            </tr>
+            <tr>
+                <td>서비스,테스트 </td>
+                <td><input type="text" name="CST_PLATFORM" value="test"/></td>
+            </tr>
+            <tr>
+                <td>구매자 이름 </td>
+                <td><input type="text" name="LGD_BUYER" value="홍길동"/></td>
+            </tr>
+            <tr>
+                <td>상품정보 </td>
+                <td><input type="text" name="LGD_PRODUCTINFO" value="myLG070-인터넷전화기"/></td>
+            </tr>
+            <tr>
+                <td>결제금액 </td>
+                <td><input type="text" name="LGD_AMOUNT" value="50000"/></td>
+            </tr>
+			<tr>
+                <td>할부개월(LGD_INSTALLRANGE)</td>
+                <td>
+                	<select name="LGD_INSTALLRANGE">
+                		<option value="0">일시불</option>
+						<option value="2">2개월</option>
+						<option value="3">3개월</option>
+						<option value="4">4개월</option>
+						<option value="5">5개월</option>
+						<option value="6">6개월</option>
+						<option value="7">7개월</option>
+						<option value="8">8개월</option>
+						<option value="9">9개월</option>
+						<option value="10">10개월</option>
+						<option value="11">11개월</option>
+						<option value="12">12개월</option>
+                	</select>
+				</td>
+            </tr>
+			<tr>
+                <td>무이자할부여부(LGD_NOINT)</td>
+                <td>
+                	<select name="LGD_NOINT" id="LGD_NOINT">
+                		<option value="0">일반할부</option>
+						<option value="1">무이자할부</option>
+                	</select>
+				</td>
+            </tr>
+            <tr>
+                <td>구매자 이메일 </td>
+                <td><input type="text" name="LGD_BUYEREMAIL" value=""/></td>
+            </tr>
+            <tr>
+                <td>주문번호 </td>
+                <td><input type="text" name="LGD_OID" value="test_1234567890020"/></td>
+            </tr>
+            <tr>
+                <td>타임스탬프 </td>
+                <td><input type="text" name="LGD_TIMESTAMP" value="1234567890"/></td>
+            </tr>
+           <tr>
+                <td>결제수단 선택(LGD_CUSTOM_FIRSTPAY)</td>
+                <td>
+                	<select name="LGD_CUSTOM_FIRSTPAY" id="LGD_CUSTOM_FIRSTPAY">
+                		<option value="SC0010">신용카드</option>
+						<option value="SC0030">계좌이체</option>
+						<option value="SC0060">휴대폰</option>
+                	</select>
+				</td>
+            </tr>
+			<tr>
+                <td>카드선택(LGD_USABLECARD)</td>
+                <td>
+                	<select name="LGD_USABLECARD" id="LGD_USABLECARD">
+                		<option value="11">국민</option>
+						<option value="31">비씨</option>
+						<option value="32">하나SK</option>
+						<option value="41">신한</option>
+						<option value="51">삼성</option>
+						<option value="61">현대</option>
+						<option value="91">NH</option>
+                	</select>
+				</td>
+            </tr>
+            </tr>
+			<tr>
+                <td>페이나우 사용(LGD_EASYPAY_ONLY )</td>
+                <td>
+					<select name="LGD_EASYPAY_ONLY" id="LGD_EASYPAY_ONLY">
+                		<option value="PAYNOW">PAYNOW</option>
+						<option value="PAYCO">PAYCO</option>
+						<option value="SSG">SSGPAY</option>
+                	</select>
+				</td>
+            </tr>
+			<tr>
+
+			<!--
+			!!!!!! 중요 !!!!!
+			간편결제(Paynow) 사용시, 앱설치 유무에 따라 자동으로 마켓이동 및 앱구동 기능 사용 여부
+      하이브리드 앱 연동의 경우, 서비스 중인 앱에 아래 스키마 처리가 필수로 반영 되어야 함.
+      ("SmartXPay_AppToWeb_연동가이드" 문서를 통한 intent://  및 lguthepay:// 처리 참조 )
+			-->
+			<tr>
+                <td>페이나우 자동 구동 여부 </td>
+                <td><select name="LGD_MONEPAY_AUTORUNYN">
+							<option value="Y">Y</option>				
+							<option value="N">N</option>				
+				</select></td>
+            </tr>
+			<tr>
+                <td>페이나우 휴대폰 번호 <br>입력 화면 사용여부</td>
+                <td><select name="LGD_PCVIEWYN">
+							<option value="Y">사용</option>				
+							<option value="N">사용안함</option>				
+				</select></td>
+			</tr>
+            <tr>
+                <td>
+                <input type="submit" value="결제하기" /><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
