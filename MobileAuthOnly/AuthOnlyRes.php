@@ -39,7 +39,7 @@
 	// configPath: 설정파일
 	// CST_PLATFORM: - test, service 값에 따라 lgdacom.conf의 test_url(test) 또는 url(srvice) 사용
 	//
-	$xpay = &new XPayClient($configPath, $CST_PLATFORM);
+	$xpay = new XPayClient($configPath, $CST_PLATFORM);
 
 	// (3) Init_TX: 메모리에 mall.conf, lgdacom.conf 할당 및 트랜잭션의 고유한 키 TXID 생성
 	if (!$xpay->Init_TX($LGD_MID)) {
