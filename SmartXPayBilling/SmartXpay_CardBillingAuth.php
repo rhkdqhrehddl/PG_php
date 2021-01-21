@@ -45,6 +45,8 @@
 	$payReqMap['LGD_PAYWINDOWTYPE']      = $LGD_PAYWINDOWTYPE;          
 	$payReqMap['LGD_VERSION']            = $LGD_VERSION;               
 	$payReqMap['LGD_DOMAIN_URL'] 		 = "xpayvvip";	
+    $payReqMap['LGD_ENCODING'] 			        = "UTF-8";
+	$payReqMap['LGD_ENCODING_RETURNURL'] 		= "UTF-8";
 	
 	$_SESSION['PAYREQ_MAP'] = $payReqMap;     
 ?>

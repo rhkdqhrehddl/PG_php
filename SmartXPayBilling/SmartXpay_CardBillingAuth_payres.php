@@ -4,10 +4,12 @@
      *
      */
 
-	$LGD_RESPCODE                = $_GET["LGD_RESPCODE"];		//토스페이먼츠 응답코드
-	$LGD_RESPMSG                 = $_GET["LGD_RESPMSG"];		//토스페이먼츠 응답메세지
+	$LGD_RESPCODE                = $_POST["LGD_RESPCODE"];		//토스페이먼츠 응답코드
+	$LGD_RESPMSG                 = $_POST["LGD_RESPMSG"];		//토스페이먼츠 응답메세지
 
-	$LGD_BILLKEY                 = $_GET["LGD_BILLKEY"];		//토스페이먼츠 빌링키
+	$LGD_BILLKEY                 = $_POST["LGD_BILLKEY"];		//토스페이먼츠 빌링키
+	
+	echo $LGD_RESPCODE;
 
     if ( "0000" == $LGD_RESPCODE ){ //인증성공시
 		echo "SmartXpay-Billing (화면)결과리턴페이지 예제입니다.  <br>";

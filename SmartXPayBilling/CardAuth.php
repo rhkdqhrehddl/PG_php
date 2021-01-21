@@ -51,6 +51,7 @@
     $xpay->Set("LGD_BUYERID", $LGD_BUYERID);
     $xpay->Set("LGD_BUYERIP", $_SERVER["REMOTE_ADDR"]);
 	$xpay->Set("VBV_ECI", $VBV_ECI);
+	$xpay->Set("LGD_ENCODING", "UTF-8");
     
 	if ($VBV_ECI == "010"){    	 			//키인방식인 경우에만 해당
 	
