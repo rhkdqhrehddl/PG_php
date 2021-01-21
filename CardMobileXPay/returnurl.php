@@ -22,7 +22,7 @@
 <?php
   $LGD_RESPCODE = $_REQUEST['LGD_RESPCODE'];
   $LGD_RESPMSG 	= $_REQUEST['LGD_RESPMSG'];
-  $LGD_PAYKEY	= "";
+  $LGD_PAYKEY	  = "";
 
   if($LGD_RESPCODE == "0000"){
 	  $LGD_PAYKEY = $_REQUEST['LGD_PAYKEY'];
@@ -32,7 +32,7 @@
 ?>
 <form method="post" name="LGD_PAYINFO" id="LGD_PAYINFO" action="payres.php">
 <?php
-	  foreach ($payReqMap as $key => $value) {
+	foreach ($payReqMap as $key => $value) {
       echo "<input type='hidden' name='$key' id='$key' value='$value'>";
     }
 ?>
