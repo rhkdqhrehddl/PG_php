@@ -97,7 +97,7 @@
 	$payReqMap['LGD_RETURNURL'] 			= $LGD_RETURNURL;      			   		// 응답수신페이지
 	$payReqMap['LGD_VERSION'] 				= "PHP_Non-ActiveX_SmartXPay_AuthOnly";	// 사용타입 정보(수정 및 삭제 금지): 이 정보를 근거로 어떤 서비스를 사용하는지 판단할 수 있습니다.
 	$payReqMap['LGD_CUSTOM_SWITCHINGTYPE'] 	= "SUBMIT";								// SUBMIT: 페이지 전환방식(값을 세션으로 유지, 수정불가)
-	$payReqMap['LGD_DOMAIN_URL'] 		 	= "xpayvvip";	
+	//$payReqMap['LGD_DOMAIN_URL'] 		 	= "xpayvvip";	
 	
 	/*Return URL에서 인증 결과 수신 시 셋팅될 파라미터 입니다.*/
 	$payReqMap['LGD_RESPCODE'] 				= "";
