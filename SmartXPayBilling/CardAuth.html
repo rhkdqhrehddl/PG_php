@@ -1,0 +1,74 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>토스페이먼츠 전자결제 샘플 페이지</title>
+</head>
+<body>
+    <form method="post" id="LGD_PAYINFO" action="CardAuth.php">
+        <table>	
+            <tr>
+                <td>상점아이디(t를 제외한 아이디) </td>
+                <td><input type="text" name="CST_MID" value=""/></td>
+            </tr>
+            <tr>
+                <td>서비스,테스트 </td>
+                <td><input type="text" name="CST_PLATFORM" value=""/></td>
+            </tr>
+            <tr>
+                <td>주문번호(유니크) </td>
+                <td><input type="text" name="LGD_OID" value="test_11234567890"/></td>
+            </tr>
+			<tr>
+                <td>상품명 </td>
+                <td><input type="text" name="LGD_PRODUCTINFO" value="테스트상품"/></td>
+            </tr>
+            <tr>
+                <td>결제금액 </td>
+                <td><input type="text" name="LGD_AMOUNT" value="1004"/></td>
+            </tr>
+            <tr>
+                <td>구매자명 </td>
+                <td><input type="text" name="LGD_BUYER" value="홍길동"/></td>
+            </tr>
+            <tr>
+                <td>구매자아이디 </td>
+                <td><input type="text" name="LGD_BUYERID" value="kkk"/></td>
+            </tr>
+            <tr>
+                <td>빌링키 </td>
+                <td><input type="text" name="LGD_PAN" value=""/></td>
+            </tr>
+            <tr>
+                <td>할부개월</td>
+                <td><input type="text" name="LGD_INSTALL" value="00"/></td>
+            </tr>
+			<tr>
+                <td>결제방식 </td>
+                <td>
+					<select name="VBV_ECI"> 
+						<option value="010" >Key-in</option>
+					</select>
+				</td>
+            </tr>
+            <tr><td colspan="2">아래의 파라미터는 값을 설정하지 않은 상태로 넘겨주세요.</td></tr>
+            <tr>
+                <td>유효기간(년)</td>
+                <td><input type="text" name="LGD_EXPYEAR" value=""/></td>
+            </tr>
+            <tr>
+                <td>유효기간(월)</td>
+                <td><input type="text" name="LGD_EXPMON" value=""/></td>
+            </tr>
+            <tr>
+                <td>카드비밀번호 앞2자리</td>
+                <td><input type="text" name="LGD_PIN" value=""/></td>
+            </tr>
+            <tr>
+                <td>생년월일 6자리 (YYMMDD) or 사업자번호</td>
+                <td><input type="text" name="LGD_PRIVATENO" value=""/></td>
+            </tr>
+      </table>
+		<input type="submit" value="결제하러가기" /><br/>
+    </form>
+</body>
+</html>

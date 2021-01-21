@@ -1,0 +1,43 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>토스페이먼츠 신용카드 빌링 인증 샘플 페이지</title>
+</head>
+<body>
+    <form method="post" id="LGD_PAYINFO" action="SmartXpay_CardBillingAuth.php">
+        <table>	
+            <tr>
+                <td>상점아이디(t를 제외한 아이디) </td>
+                <td><input type="text" name="CST_MID" value=""/></td>
+            </tr>
+            <tr>
+                <td>서비스,테스트 </td>
+                <td><input type="text" name="CST_PLATFORM" value=""/></td>
+            </tr>
+  			<tr>
+                <td>생년월일 6자리 (YYMMDD) or 사업자번호 </td>
+                <td>
+                    <input type="text" name="LGD_BUYERSSN" value=""/>생년월일/사업자번호 일치여부 확인이 'Y'인 경우 반드시 넘기시기 바랍니다.
+                </td>
+            </tr>
+            <tr>
+                <td>생년월일,사업자번호 일치 여부 확인</td>
+                <td><input type="text" name="LGD_CHECKSSNYN" value="Y"/></td>
+            </tr>
+            <tr>
+                <td>상품명(페이나우 뷰 출력용) </td>
+                <td><input type="text" name="LGD_PRODUCTINFO" value="테스트상품"/> 페이나우 빌링 사용시 필수</td>
+            </tr>
+            <tr>
+                <td>결제금액(페이나우 뷰 출력용) </td>
+                <td><input type="text" name="LGD_AMOUNT" value="1004"/> 페이나우 빌링 사용시 필수</td>
+            </tr>
+            <tr>
+                <td>페이나우 사용 여부 </td>
+                <td><input type="text" name="LGD_EASYPAY_ONLY" value="PAYNOW"/> 페이나우 빌링 사용시 필수</td>
+            </tr>
+         </table>
+		<input type="submit" value="다음" /><br/>
+    </form>
+</body>
+</html>
