@@ -22,7 +22,7 @@
     $LGD_BUYER                  = $_POST["LGD_BUYER"];					//구매자명
     $LGD_PRODUCTINFO            = $_POST["LGD_PRODUCTINFO"];			//상품명
     $LGD_BUYEREMAIL             = $_POST["LGD_BUYEREMAIL"];				//구매자 이메일
-    $LGD_CUSTOM_FIRSTPAY        = $_POST["LGD_CUSTOM_FIRSTPAY"];		//상점정의 초기결제수단
+    $LGD_CUSTOM_USABLEPAY        = $_POST["LGD_CUSTOM_USABLEPAY"];		//상점정의 초기결제수단
     $LGD_PCVIEWYN				= $_POST["LGD_PCVIEWYN"];				//휴대폰번호 입력 화면 사용 여부(유심칩이 없는 단말기에서 입력-->유심칩이 있는 휴대폰에서 실제 결제)
 	$LGD_CUSTOM_SKIN            = "SMART_XPAY2";                        //상점정의 결제창 스킨
 
@@ -100,13 +100,13 @@
     $payReqMap['LGD_HASHDATA']           = $LGD_HASHDATA;				// MD5 해쉬암호값
     $payReqMap['LGD_RETURNURL']   		 = $LGD_RETURNURL;      		// 응답수신페이지
     $payReqMap['LGD_VERSION']         	 = "PHP_Non-ActiveX_SmartXPay";	// 버전정보 (삭제하지 마세요)
-    $payReqMap['LGD_CUSTOM_FIRSTPAY']  	 = $LGD_CUSTOM_FIRSTPAY;		// 디폴트 결제수단
+    $payReqMap['LGD_CUSTOM_USABLEPAY']  	 = $LGD_CUSTOM_USABLEPAY;		// 디폴트 결제수단
 	$payReqMap['LGD_PCVIEWYN']			 = $LGD_PCVIEWYN;				// 휴대폰번호 입력 화면 사용 여부(유심칩이 없는 단말기에서 입력-->유심칩이 있는 휴대폰에서 실제 결제)
 	$payReqMap['LGD_CUSTOM_SWITCHINGTYPE']  = "SUBMIT";					// 신용카드 카드사 인증 페이지 연동 방식
 	$payReqMap['LGD_DOMAIN_URL'] 			= "xpayvvip";
 
     //신용카드 자체창 방식
-	if($LGD_CUSTOM_FIRSTPAY == 'SC0010'){
+	if($LGD_CUSTOM_USABLEPAY == 'SC0010'){
 		$payReqMap['LGD_CARDTYPE']                = $LGD_CARDTYPE;					// 카드선택
 		$payReqMap['LGD_INSTALL']                = $LGD_INSTALL;					// 할부개월
 		$payReqMap['LGD_NOINT']                = $LGD_NOINT;					// 무이자여부
