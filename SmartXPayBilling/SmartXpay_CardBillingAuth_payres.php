@@ -9,7 +9,6 @@
 
 	$LGD_BILLKEY                 = $_POST["LGD_BILLKEY"];		//토스페이먼츠 빌링키
 	
-	echo $LGD_RESPCODE;
 
     if ( "0000" == $LGD_RESPCODE ){ //인증성공시
 		echo "SmartXpay-Billing (화면)결과리턴페이지 예제입니다.  <br>";
