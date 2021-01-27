@@ -63,8 +63,8 @@ function doAnsimKeyin(){
 
 <body>
 <form method="post" id="LGD_PAYINFO">
-<input type="hidden" name="LGD_MID"             value="<?= $LGD_MID ?>">									<!-- 상점아이디 -->
-<input type="hidden" name="LGD_NOTEURL"         value="<?= $LGD_NOTEURL ?>">			<!-- 결제결과처리_URL(LGD_NOTEURL) -->
+<input type="hidden" name="LGD_MID"             value="tmk_KVP_selex">									<!-- 상점아이디 -->
+<input type="hidden" name="LGD_NOTEURL"         value="https://rhkdqhrehddl.tk:9443/AnsimKeyin/note_url.php">			<!-- 결제결과처리_URL(LGD_NOTEURL) -->
 <table>
     <tr>
         <td>주문번호 </td>
