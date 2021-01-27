@@ -29,7 +29,7 @@
  */
 function doAnsimKeyin(){
 //CST_PLATFORM은 test(테스트) 또는 service(서비스)를 넘겨주시면 됩니다. 
-    ret = ansimkeyin_check(document.getElementById('LGD_PAYINFO'), '<?= $CST_PLATFORM ?>'); 
+    ret = ansimkeyin_check(document.getElementById('LGD_PAYINFO'), 'test'); 
 
     if (ret=="00"){ //plug-in 정상 로딩
         var LGD_RESPCODE       = dpop.getData('LGD_RESPCODE');       //결과코드
