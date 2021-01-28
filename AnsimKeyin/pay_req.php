@@ -29,7 +29,12 @@
  */
 function doAnsimKeyin(){
 //CST_PLATFORM은 test(테스트) 또는 service(서비스)를 넘겨주시면 됩니다. 
-    ret = ansimkeyin_check(document.getElementById('LGD_PAYINFO'), 'service'); 
+
+	if(document.getElementById('CST_PLATFORM').value === 'test'){
+		document.getElementById('LGD_MID').value('t' + document.getElementById('LGD_MID').value);
+	}					
+					
+    ret = ansimkeyin_check(document.getElementById('LGD_PAYINFO'), document.getElementById('CST_PLATFORM').value); 
 
     if (ret=="00"){ //plug-in 정상 로딩
         var LGD_RESPCODE       = dpop.getData('LGD_RESPCODE');       //결과코드
@@ -67,7 +72,11 @@ function doAnsimKeyin(){
 <table>
     <tr>
         <td>상점아이디 </td>
-        <td><input type="text" name="LGD_MID"     value="<?= $LGD_MID ?>">	<!-- 주문번호 --></td>
+        <td><input type="text" name="LGD_MID" id="LGD_MID"     value="<?= $LGD_MID ?>">	<!-- 주문번호 --></td>
+    </tr>
+    <tr>
+        <td>서비스, 테스트 </td>
+        <td><input type="text" id="CST_PLATFORM"     value="test">	<!-- 주문번호 --></td>
     </tr>
     <tr>
         <td>주문번호 </td>
