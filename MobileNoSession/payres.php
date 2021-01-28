@@ -25,6 +25,7 @@
      *************************************************
      */
     $CST_PLATFORM               = $_POST["CST_PLATFORM"];
+    $CST_MID              		 = $_POST["CST_MID"];
     
 	$LGD_MID                    = (("test" == $CST_PLATFORM)?"t":"").$CST_MID;
     $LGD_PAYKEY                 = $_POST["LGD_PAYKEY"];
