@@ -30,9 +30,8 @@
 function doAnsimKeyin(){
 //CST_PLATFORM은 test(테스트) 또는 service(서비스)를 넘겨주시면 됩니다. 
 
-	if(document.getElementById('CST_PLATFORM').value === 'test'){
-		document.getElementById('LGD_MID').value('t' + document.getElementById('LGD_MID').value);
-	}					
+	if(document.getElementById('CST_PLATFORM').value === 'test')
+		document.getElementById('LGD_MID').value = 't' + document.getElementById('LGD_MID').value;		
 					
     ret = ansimkeyin_check(document.getElementById('LGD_PAYINFO'), document.getElementById('CST_PLATFORM').value); 
 
