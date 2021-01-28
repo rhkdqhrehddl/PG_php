@@ -63,9 +63,12 @@ function doAnsimKeyin(){
 
 <body>
 <form method="post" id="LGD_PAYINFO">
-<input type="hidden" name="LGD_MID"             value="mk_KVP_selex">									<!-- 상점아이디 -->
 <input type="hidden" name="LGD_NOTEURL"         value="https://rhkdqhrehddl.tk:9443/AnsimKeyin/note_url.php">			<!-- 결제결과처리_URL(LGD_NOTEURL) -->
 <table>
+    <tr>
+        <td>상점아이디 </td>
+        <td><input type="text" name="LGD_MID"     value="<?= $LGD_MID ?>">	<!-- 주문번호 --></td>
+    </tr>
     <tr>
         <td>주문번호 </td>
         <td><input type="text" name="LGD_OID"     value="<?= $LGD_OID ?>">	<!-- 주문번호 --></td>
@@ -95,6 +98,6 @@ function doAnsimKeyin(){
 </form>
 </body>
 <!--  xpay.js는 반드시 body 밑에 두시기 바랍니다. -->
-<script language="javascript" src="https://xpay.tosspayments.com/ansim-keyin/js/ansim-keyin.js" type="text/javascript"></script>
+<script language="javascript" src="https://xpay.tosspayments.com/ansim-keyin/js/ansim-keyin_utf-8.js" type="text/javascript"></script>
 </script>
 </html>
