@@ -25,6 +25,7 @@
     $LGD_CUSTOM_USABLEPAY        = $_POST["LGD_CUSTOM_USABLEPAY"];		//상점정의 초기결제수단
     $LGD_PCVIEWYN				= $_POST["LGD_PCVIEWYN"];				//휴대폰번호 입력 화면 사용 여부(유심칩이 없는 단말기에서 입력-->유심칩이 있는 휴대폰에서 실제 결제)
 	$LGD_CUSTOM_SKIN            = "SMART_XPAY2";                        //상점정의 결제창 스킨
+    $LGD_CUSTOM_PROCESSTYPE     = $_POST["LGD_CUSTOM_PROCESSTYPE"];
 
 	
     $LGD_CARDTYPE                    = $_POST["LGD_CARDTYPE"];						// 카드선택
