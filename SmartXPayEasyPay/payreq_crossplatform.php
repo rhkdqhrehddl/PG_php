@@ -117,7 +117,7 @@
     $payReqMap['LGD_EASYPAY_ONLY']			= $LGD_EASYPAY_ONLY;                    // paynow 사용여부
     $payReqMap['LGD_MONEPAY_AUTORUNYN']		= $LGD_MONEPAY_AUTORUNYN;				// paynow 자동구동 여부
 	$payReqMap['LGD_PCVIEWYN']				= $LGD_PCVIEWYN;						// 휴대폰번호 입력 화면 사용 여부(유심칩이 없는 단말기에서 입력-->유심칩이 있는 휴대폰에서 실제 결제)
-
+	$payReqMap['LGD_PAYDIRECT']  			= "Y";
 
 	//iOS 연동시 필수
 	$payReqMap['LGD_MPILOTTEAPPCARDWAPURL'] = $LGD_MPILOTTEAPPCARDWAPURL;
