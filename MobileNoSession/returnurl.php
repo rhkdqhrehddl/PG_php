@@ -7,7 +7,9 @@
 	</script>
 </head>
 <body onload="setLGDResult()">
-<?php
+<?php 
+  $CST_PLATFORM = $_POST["CST_PLATFORM"];
+  $CST_MID      = $_POST["CST_MID"];
   $LGD_RESPCODE = $_REQUEST['LGD_RESPCODE'];
   $LGD_RESPMSG 	= $_REQUEST['LGD_RESPMSG'];
   $LGD_PAYKEY	  = "";
@@ -20,6 +22,8 @@
 ?>
 <form method="post" name="LGD_PAYINFO" id="LGD_PAYINFO" action="payres.php">
 
+	<input type="hidden" id="CST_MID"		name="CST_MID"		value="<?= $CST_MID ?>"/>
+	<input type="hidden" id="CST_PLATFORM"		name="CST_PLATFORM"		value="<?= $CST_PLATFORM ?>"/>
 	<input type="hidden" id="LGD_RESPCODE"	name="LGD_RESPCODE"	value="<?= $LGD_RESPCODE ?>"/>
 	<input type="hidden" id="LGD_RESPMSG"	name="LGD_RESPMSG"	value="<?= $LGD_RESPMSG ?>"/>
 	<input type="hidden" id="LGD_PAYKEY"	name="LGD_PAYKEY"	value="<?= $LGD_PAYKEY ?>"/>
