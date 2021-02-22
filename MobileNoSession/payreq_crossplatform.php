@@ -212,6 +212,7 @@ function getFormObject() {
 <input type="hidden" id="LGD_CASNOTEURL"			name="LGD_CASNOTEURL"				value="<?=$LGD_CASNOTEURL ?>"/>
 <input type="hidden" id="LGD_PCVIEWYN"				name="LGD_PCVIEWYN"					value="<?=$LGD_PCVIEWYN ?>"/>
 <input type="hidden" id="LGD_MPILOTTEAPPCARDWAPURL"	name="LGD_MPILOTTEAPPCARDWAPURL"	value="<?=$LGD_MPILOTTEAPPCARDWAPURL ?>"/>
+<input type="hidden" id="LGD_RETURN_MERT_CUSTOM_PARAM"	name="LGD_RETURN_MERT_CUSTOM_PARAM"	value="Y" />
 
 <!--
 결제요청시 “LGD_RETURN_MERT_CUSTOM_PARAM” = “Y”일 경우 사용자정의 값이 retunurl 로 그대로 리턴
