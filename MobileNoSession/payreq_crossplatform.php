@@ -21,7 +21,7 @@
     $LGD_BUYER                  = $_POST["LGD_BUYER"];					//구매자명
     $LGD_PRODUCTINFO            = $_POST["LGD_PRODUCTINFO"];			//상품명
     $LGD_BUYEREMAIL             = $_POST["LGD_BUYEREMAIL"];				//구매자 이메일
-    $LGD_CUSTOM_FIRSTPAY        = $_POST["LGD_CUSTOM_FIRSTPAY"];		//상점정의 초기결제수단
+    $LGD_CUSTOM_USABLEPAY        = $_POST["LGD_CUSTOM_USABLEPAY"];		//상점정의 초기결제수단
     $LGD_PCVIEWYN				= $_POST["LGD_PCVIEWYN"];				//휴대폰번호 입력 화면 사용 여부(유심칩이 없는 단말기에서 입력-->유심칩이 있는 휴대폰에서 실제 결제)
 	$LGD_CUSTOM_SKIN            = "SMART_XPAY2";                        //상점정의 결제창 스킨
     $LGD_CUSTOM_PROCESSTYPE     = "TWOTR";                                       //수정불가
@@ -203,7 +203,7 @@ function getFormObject() {
 <input type="hidden" id="LGD_TIMESTAMP"				name="LGD_TIMESTAMP"				value="<?=$LGD_TIMESTAMP ?>"/>
 <input type="hidden" id="LGD_HASHDATA"				name="LGD_HASHDATA"					value="<?=$LGD_HASHDATA ?>"/>
 <input type="hidden" id="LGD_RETURNURL"				name="LGD_RETURNURL"				value="<?=$LGD_RETURNURL ?>"/>
-<input type="hidden" id="LGD_CUSTOM_FIRSTPAY"		name="LGD_CUSTOM_FIRSTPAY"			value="<?=$LGD_CUSTOM_FIRSTPAY ?>"/>
+<input type="hidden" id="LGD_CUSTOM_USABLEPAY"		name="LGD_CUSTOM_USABLEPAY"			value="<?=$LGD_CUSTOM_USABLEPAY ?>"/>
 <input type="hidden" id="LGD_CUSTOM_SWITCHINGTYPE"	name="LGD_CUSTOM_SWITCHINGTYPE"		value="<?=$LGD_CUSTOM_SWITCHINGTYPE ?>"/>
 <input type="hidden" id="LGD_WINDOW_VER"			name="LGD_WINDOW_VER"				value="<?=$LGD_WINDOW_VER ?>"/>
 <input type="hidden" id="LGD_OSTYPE_CHECK"			name="LGD_OSTYPE_CHECK"				value="<?=$LGD_OSTYPE_CHECK ?>"/>
