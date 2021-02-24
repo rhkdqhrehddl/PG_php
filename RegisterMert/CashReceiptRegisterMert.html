@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>토스페이먼츠 현금영수증 가맹 사업자 등록/확인</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+    <form method="post" id="LGD_PAYINFO" action="CashReceiptRegisterMert.php">
+    <div>
+        <table>	
+            <tr>
+                <td>상점아이디(t를 제외한 아이디) </td>
+                <td><input type="text" name="CST_MID" value="lgdacomxpay"/></td>
+            </tr>
+            <tr>
+                <td>서비스,테스트 </td>
+                <td>
+                	<select name="CST_PLATFORM" >
+                		<option value="test">테스트</option>
+                		<option value="service">서비스</option>
+					</select>
+				</td>
+            </tr>
+            <tr>
+                <td>현금영수증 가맹 사업자번호 </td>
+                <td><input type="text" name="LGD_REG_BUSINESSNUM" value="1068106499"/></td>
+            </tr>
+            <tr>
+                <td>현금영수증 가맹 사업자명</td>
+                <td><input type="text" name="LGD_REG_MERTNAME" value="토스페이먼츠"/></td>
+            </tr>
+		    <tr>
+                <td>현금영수증 가맹 사업자 전화번호 </td>
+                <td><input type="text" name="LGD_REG_MERTPHONE" value="02-2089-7494"/></td>
+            </tr>
+            <tr>
+                <td>현금영수증 가맹 사업자 대표자명</td>
+                <td><input type="text" name="LGD_REG_CEONAME" value="박종응"/></td>
+            </tr>
+            <tr>
+                <td>현금영수증 가맹 사업장 주소</td>
+                <td><input type="text" name="LGD_REG_MERTADDRESS" value="서울특별시 강남구 역삼2동"/></td>
+            </tr>
+            <tr>
+                <td>메소드</td>
+				<td>
+                	<select name="LGD_METHOD" >
+                		<option value="REG_REQUEST">등록요청</option>
+                		<option value="REG_RESULT">결과확인</option>
+					</select>
+				</td>
+            </tr>
+            <tr>
+                <td>
+                <input type="submit" value="등록요청/결과확인" /><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>
