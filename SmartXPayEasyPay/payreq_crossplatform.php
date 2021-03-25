@@ -112,15 +112,14 @@
     $payReqMap['LGD_CUSTOM_SWITCHINGTYPE']  = "SUBMIT";								// 신용카드 카드사 인증 페이지 연동 방식     
     $payReqMap['LGD_DOMAIN_URL'] 			= "xpayvvip";	
 	
-    $payReqMap['LGD_INSTALL']			= "";					// 할부개월
-    //$payReqMap['LGD_USABLECARD']			= $LGD_USABLECARD;						// 결제 신용카드
+    $payReqMap['LGD_INSTALLRANGE']			= $LGD_INSTALLRANGE;					// 할부개월
+    $payReqMap['LGD_USABLECARD']			= $LGD_USABLECARD;						// 결제 신용카드
     $payReqMap['LGD_EASYPAY_ONLY']			= $LGD_EASYPAY_ONLY;                    // paynow 사용여부
     //$payReqMap['LGD_MONEPAY_AUTORUNYN']		= $LGD_MONEPAY_AUTORUNYN;				// paynow 자동구동 여부
 	//$payReqMap['LGD_PCVIEWYN']				= $LGD_PCVIEWYN;						// 휴대폰번호 입력 화면 사용 여부(유심칩이 없는 단말기에서 입력-->유심칩이 있는 휴대폰에서 실제 결제)
 
 	
     $payReqMap['LGD_SELF_CUSTOM']			= "Y";
-    $payReqMap['LGD_SP_CHAIN_CODE']			= "0";
 
 	//iOS 연동시 필수
 	$payReqMap['LGD_MPILOTTEAPPCARDWAPURL'] = $LGD_MPILOTTEAPPCARDWAPURL;
@@ -144,8 +143,8 @@
 	* 계좌이체 결제에만 적용 - BEGIN 
 	****************************************************
 	*/
-	//$payReqMap['LGD_MTRANSFERWAPURL']  		= $LGD_MTRANSFERWAPURL;	
-	//$payReqMap['LGD_MTRANSFERCANCELURL']  	= $LGD_MTRANSFERCANCELURL;
+	$payReqMap['LGD_MTRANSFERWAPURL']  		= $LGD_MTRANSFERWAPURL;	
+	$payReqMap['LGD_MTRANSFERCANCELURL']  	= $LGD_MTRANSFERCANCELURL;
 	
 	/*
 	****************************************************
@@ -163,7 +162,7 @@
 	- iOS일 경우, 반드시 N으로 값을 수정
 	*/
 	$payReqMap['LGD_KVPMISPAUTOAPPYN']		= "A";		// 신용카드 결제 
-	//$payReqMap['LGD_MTRANSFERAUTOAPPYN']	= "A";		// 계좌이체 결제
+	$payReqMap['LGD_MTRANSFERAUTOAPPYN']	= "A";		// 계좌이체 결제
 	
 
     // 가상계좌(무통장) 결제연동을 하시는 경우  할당/입금 결과를 통보받기 위해 반드시 LGD_CASNOTEURL 정보를 LG 유플러스에 전송해야 합니다 .
