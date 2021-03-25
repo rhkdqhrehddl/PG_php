@@ -120,6 +120,7 @@
 
 	
     $payReqMap['LGD_SELF_CUSTOM']			= "Y";
+    $payReqMap['LGD_SP_CHAIN_CODE']			= "0";
 
 	//iOS 연동시 필수
 	$payReqMap['LGD_MPILOTTEAPPCARDWAPURL'] = $LGD_MPILOTTEAPPCARDWAPURL;
@@ -143,8 +144,8 @@
 	* 계좌이체 결제에만 적용 - BEGIN 
 	****************************************************
 	*/
-	$payReqMap['LGD_MTRANSFERWAPURL']  		= $LGD_MTRANSFERWAPURL;	
-	$payReqMap['LGD_MTRANSFERCANCELURL']  	= $LGD_MTRANSFERCANCELURL;
+	//$payReqMap['LGD_MTRANSFERWAPURL']  		= $LGD_MTRANSFERWAPURL;	
+	//$payReqMap['LGD_MTRANSFERCANCELURL']  	= $LGD_MTRANSFERCANCELURL;
 	
 	/*
 	****************************************************
@@ -162,7 +163,7 @@
 	- iOS일 경우, 반드시 N으로 값을 수정
 	*/
 	$payReqMap['LGD_KVPMISPAUTOAPPYN']		= "A";		// 신용카드 결제 
-	$payReqMap['LGD_MTRANSFERAUTOAPPYN']	= "A";		// 계좌이체 결제
+	//$payReqMap['LGD_MTRANSFERAUTOAPPYN']	= "A";		// 계좌이체 결제
 	
 
     // 가상계좌(무통장) 결제연동을 하시는 경우  할당/입금 결과를 통보받기 위해 반드시 LGD_CASNOTEURL 정보를 LG 유플러스에 전송해야 합니다 .
