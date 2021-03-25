@@ -112,10 +112,10 @@
     $payReqMap['LGD_CUSTOM_SWITCHINGTYPE']  = "SUBMIT";								// 신용카드 카드사 인증 페이지 연동 방식     
     $payReqMap['LGD_DOMAIN_URL'] 			= "xpayvvip";	
 	
-    $payReqMap['LGD_INSTALLRANGE']			= $LGD_INSTALLRANGE;					// 할부개월
-    $payReqMap['LGD_USABLECARD']			= $LGD_USABLECARD;						// 결제 신용카드
+    $payReqMap['LGD_INSTALL']			= "";					// 할부개월
+    //$payReqMap['LGD_USABLECARD']			= $LGD_USABLECARD;						// 결제 신용카드
     $payReqMap['LGD_EASYPAY_ONLY']			= $LGD_EASYPAY_ONLY;                    // paynow 사용여부
-    $payReqMap['LGD_MONEPAY_AUTORUNYN']		= $LGD_MONEPAY_AUTORUNYN;				// paynow 자동구동 여부
+    //$payReqMap['LGD_MONEPAY_AUTORUNYN']		= $LGD_MONEPAY_AUTORUNYN;				// paynow 자동구동 여부
 	//$payReqMap['LGD_PCVIEWYN']				= $LGD_PCVIEWYN;						// 휴대폰번호 입력 화면 사용 여부(유심칩이 없는 단말기에서 입력-->유심칩이 있는 휴대폰에서 실제 결제)
 
 	
