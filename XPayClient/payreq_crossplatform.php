@@ -36,12 +36,12 @@ header('Set-Cookie: PHPSESSID='.session_id().'; SameSite=None; Secure');
     /*
      * 가상계좌(무통장) 결제 연동을 하시는 경우 아래 LGD_CASNOTEURL 을 설정하여 주시기 바랍니다. 
      */    
-    $LGD_CASNOTEURL				= "https://" . $server_domain . "/XPayClient/cas_noteurl.php";    
+    $LGD_CASNOTEURL				= "http://" . $server_domain . "/XPayClient/cas_noteurl.php";    
 
     /*
      * LGD_RETURNURL 을 설정하여 주시기 바랍니다. 반드시 현재 페이지와 동일한 프로트콜 및  호스트이어야 합니다. 아래 부분을 반드시 수정하십시요.
      */    
-    $LGD_RETURNURL				= "https://" . $server_domain . "/XPayClient/returnurl.php";  
+    $LGD_RETURNURL				= "http://" . $server_domain . "/XPayClient/returnurl.php";  
 
 
     $configPath                 = "C:/lgdacom";                                  //토스페이먼츠에서 제공한 환경파일("/conf/lgdacom.conf") 위치 지정.     
@@ -131,7 +131,7 @@ header('Set-Cookie: PHPSESSID='.session_id().'; SameSite=None; Secure');
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>토스페이먼츠 eCredit서비스 결제테스트</title>
 <!-- test일 경우 -->
-<script language="javascript" src="https://pretest.tosspayments.com:9443/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
+<script language="javascript" src="https://xpayvvip.tosspayments.com/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
 <!-- 
   service일 경우 아래 URL을 사용 
 <script language="javascript" src="https://xpay.tosspayments.com/xpay/js/xpay_crossplatform.js" type="text/javascript"></script>
